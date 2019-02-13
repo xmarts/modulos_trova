@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+	<odoo>
+		<data>
+			<record id="trova_viv_titulacion_modelo_tree" model="ir.ui.view">
+        		<field name="name">trova.viv.titulacion.modelo.tree</field>
+        		<field name="model">trova.vivienda.titu</field>
+        		<field name="arch" type="xml"> 
+            		<tree string ="Listado de titulaciones">
+             			<field name="name"/>
+             			<field name="folio"/>
+             			<field name="etapas" />
+         			</tree> 
+                </field>
+            </record>
+
+            <record id="trova_viv_titulacion_modelo_form" model="ir.ui.view">
+                <field name="name">trova.viv.titulacion.modelo.form</field>
+                <field name="model">trova.vivienda.titu</field>
+                <field name="arch" type="xml">
+                    <form string ="Formulario de datos de Titulacion" version="9.0">
+                       <header><field name="etapas" widget="statusbar" clickable="1" />
+                            <button confirm="Estas seguro de crear la factura de esta titulacion?" name="action_titu_invoice_create" string="Factura Titulacion" type="object" class="oe_highlight"/>
+                        </header>
+                    <sheet> 
+                            <div>
+                                <h1>
+                                   <field name="name" readonly="1"/>
+                                </h1>
+                            </div>
+                    <group name="group"> 
+                        <group name="group_left">
+                            <field name='presupuesto'/>
+                            <field name='folio'/>
+                            <field name='asesor'/>
+                            <field name='confirmventa'/>
+                            <field name="tipocredito" />
+                            <field name='fechacaducacion'/>
+                        </group>
+                        <group name="group_rigth">
+                            <field name="cliente" />
+                            <field name="nss" />
+                            <field name="telefono"/>
+                            <field name="notaria" />
+                            <field name="numcredifona" />
+                            <field name="comentariostit" />
+                            <field name="medio_enterado"/>
+                        </group>                  
+                    </group>
+
+                    <notebook id="info">
+                            <page name="otra_info" string="Otra Informacion">
+                                <group name="group"> 
+                                  <group name="group_left" string="Pendientes y Mejoras">
+                                      <field name="precio_vivienda"/>                            
+                                      <field name="precio_mejoras" />
+                                      <field name="fecha_pago_mejoras" />
+                                      <field name="total_pagar"/>
+                                      <field name="enganche_vivienda"/>
+                                      <field name="apartado_vivienda"/>
+                                      <field name="pendientes"/>
+                                      <field name="fecha_concluido"/>
+                                  </group>
+                                  <group name="group_rigth" string="Formato de Pago">
+                                      <field name="tipo_pago"/> 
+                                      <field name="num_pago"/>
+                                      <field name="num_cuenta"/>
+                                      <field name="nombre_banco"/>
+                                      <field name="monto_pago"/>
+                                  </group>                     
+                                </group>
+                            </page>
+
+                            <page name="solicitud_compra" string="Solicidud de Compra">
+                                    <group name="group"> 
+                                        <group name="group_left">
+                                            <field name="subsidio"/>
+                                            <field name="monto_cuenta_vivienda"/>
+                                            <field name="pago_contado"/>
+                                            <field name="fecha_pago_enganche_contado" attrs="{'invisible': [('pago_contado','=',False)], 'required': [('pago_contado','=',True)]}" /> 
+                                            <field name="pago_credito"/>
+                                            <field name="fecha_limite_abono" attrs="{'invisible': [('pago_credito','=',False)], 'required': [('pago_credito','=',True)]}" />  
+                                            <field name="cantidad_mensualidad" attrs="{'invisible': [('pago_credito','=',False)], 'required': [('pago_credito','=',True)]}"/>
+                                            <field name="mensaulidad_enganche" attrs="{'invisible': [('pago_credito','=',False)], 'required': [('pago_credito','=',True)]}"/> 
+                                            <field name="fecha_inicio_pago_enganche" attrs="{'invisible': [('pago_credito','=',False)], 'required': [('pago_credito','=',True)]}"/>      
+                                        </group> 
+                                        <group string="Avaluo">
+                                            <field name="subsidio"/>
+                                            <field name="monto_cuenta_vivienda"/>
+                                            <field name="destino_credito"/>
+                                        </group>                  
+                                    </group>
+                            </page>
+                            <page name="carta_notarial" string="Carta Notarial">
+                                <group name="group"> 
+                                  <group name="group_left">
+                                      <field name="modelo_escritura"/>                            
+                                      <field name="pago_paculio" />
+                                      <field name="pago_acredor"/>
+                                      <field name="clabe_acredor"/>
+                                      <field name="nombre_banco_acredor"/>
+                                      <field name="importe_hipoteca"/>
+                                  </group>                   
+                                </group>
+                            </page>
+                     </notebook>
+                    </sheet>
+                    </form>
+                </field>
+            </record>
+	</data>
+</odoo>	
+
+
+
+
+
+
+
+
+
+
+

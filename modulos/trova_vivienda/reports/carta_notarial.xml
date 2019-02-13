@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="carta_notarial"> 
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="o">
+                    <t t-call="web.external_layout">
+                                <t t-if="not o and doc">
+                                    <t t-set="o" t-value="doc"/>
+                                </t>
+                                <t t-if="o and 'company_id' in o">
+                                    <t t-set="company" t-value="o.company_id"></t>
+                                </t>
+                                <t t-if="not o or not 'company_id' in o">
+                                    <t t-set="company" t-value="res_company"></t>
+                                </t>
+                        <div class="page">  
+                             <table align="center">
+                                <tr hight="30%">
+                                    <td width="60%" style="text-align:center;" background-color="#3471f2b"><strong>CARTA DE INSTRUCCION NOTARIAL</strong> PARA COMPRAR UNA VIVIENDA</td>
+                                    <td width="20%" align="left" style="position:relative;"><img src="/trova_vivienda/static/src/img/infonavit.png" style="max-height: 200px; width:111px;"/></td>
+                                </tr><br/><br/><br/>
+                                <tr>
+                                    <td>
+                                        <strong>Nombre Notario: </strong> <span t-field="o.notaria.name" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td >
+                                        <strong>Numero Notario: </strong> <span t-field="o.notaria.num_notaria" />
+                                    </td>
+                                </tr>
+                                <br/>
+                            </table>
+                            <br/>
+                            <p align="justify">
+                                P r e s e n t e<br/>
+                                Solicitamos a usted otorgue escritura publica en su protocolo en la que se consifna(n) a (los) contrato(s) de apertura de credito simple con garantia hipotecaria, cuyas caracteristicas deben ser las que a continuacion se indican:
+                            </p>
+
+                            <table border="0" cellspacing="0"><colgroup span="10" width="100%"></colgroup>
+                            <tbody>
+                                <tr>
+                                    <td style="border: 1px solid #000000;" colspan="5" align="left" valign="middle" height="17">Modelo de escritura</td>
+                                    <td style="border: 1px solid #000000;" colspan="5" align="left" valign="middle"><span t-field="o.modelo_escritura"/></td>
+                                </tr>
+                                <tr>
+                                    <td style="border: 1px solid #000000;" colspan="5" align="left" valign="middle" height="17">Addenda</td>
+                                    <td style="border: 1px solid #000000;" colspan="5" align="left" valign="middle"><span t-field="o.cliente.l10n_mx_edi_addenda"/></td>
+                                </tr>
+                                <tr>
+                                    <td style="border: 1px solid #000000;" colspan="5" align="left" valign="middle" height="17">N.S.S del Titular</td>
+                                    <td style="border: 1px solid #000000;" colspan="5" align="left" valign="middle"><span t-field="o.nss"/></td>
+                                </tr>
+                                <tr>
+                                    <td style="border: 1px solid #000000;" colspan="5" align="left" valign="middle" height="17">Nombre del titular</td>
+                                    <td style="border: 1px solid #000000;" colspan="5" align="left" valign="middle"><span t-field="o.cliente"/></td>
+                                </tr>
+                                <tr>
+                                    <td style="border: 1px solid #000000;" colspan="5" align="left" valign="middle" height="17">Nombre del vendedor</td>
+                                    <td style="border: 1px solid #000000;" colspan="5" align="left" valign="middle">INFONAVIT</td>
+                                </tr>
+                                <tr>
+                                    <td style="border: 1px solid #000000;" colspan="5" align="left" valign="middle" height="17">Beneficiarios de Pago</td>
+                                    <td style="border: 1px solid #000000;" colspan="3" align="left" valign="middle"><span t-esc="company.name"/></td>
+                                    <td style="border: 1px solid #000000;" colspan="2" align="left" valign="middle">Vendedor</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="5" align="left" valign="middle" height="17"></td>
+                                    <td style="border: 1px solid #000000;" colspan="3" align="left" valign="middle">INFONAVIT</td>
+                                    <td style="border: 1px solid #000000;" colspan="2" align="left" valign="middle">Acreedor</td>
+                                </tr>
+                                <tr>
+                                    <td style="border: 1px solid #000000;" colspan="5" align="left" valign="middle" height="17">Domicilio del Inmueble objeto de la garantia hipotecaria</td>
+                                    <td style="border: 1px solid #000000;" colspan="5" align="left" valign="middle"><span t-field="o.folio.name"/> del Condominio  <span t-field="o.folio.mz_lote"/> de la calle: <span t-field="o.folio.calle"/> identificada con el No.<span t-field="o.folio.noext"/> de ubicación en la Colonia: <span t-field="o.folio.calle2"/> Municipio: <span t-field="o.folio.municipio"/> <span t-field="o.folio.estado"/></td>
+                                </tr>
+                                <tr>
+                                    <td style="border: 1px solid #000000;" colspan="5" align="left" valign="middle" height="17">Pago con dinero de su propio paculio</td>
+                                    <td style="border: 1px solid #000000;" colspan="5" align="left" valign="middle"><span t-field="o.pago_paculio"/></td>
+                                </tr>
+                                <tr>
+                                    <td style="border: 1px solid #000000;" colspan="5" align="left" valign="middle" height="17">Precio de compra-venta</td>
+                                    <td style="border: 1px solid #000000;" colspan="5" align="left" valign="middle"><span t-field="o.folio.precioventa"/></td>
+                                </tr>
+                                <tr>
+                                    <td style="border-top: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000;" colspan="5" align="left" valign="middle" height="17">Pago parcial del precio de compra-venta</td>
+                                    <td style="border: 1px solid #000000;" colspan="5" align="left" valign="middle"><span t-field="o.monto_pago"/></td>
+                                </tr>
+                                <tr>
+                                    <td style="border-left: 1px solid #000000; border-right: 1px solid #000000;" colspan="5" align="left" valign="middle" height="17">CABLE de la cuenta de deposito bancario de pago</td>
+                                    <td style="border: 1px solid #000000;" colspan="5" align="left" valign="middle"><span t-field="o.num_cuenta"/></td>
+                                </tr>
+                                <tr>
+                                    <td style="border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000;" colspan="5" align="left" valign="middle" height="17">Nombre del banco depositario</td>
+                                    <td style="border: 1px solid #000000;" colspan="5" align="left" valign="middle"><span t-field="o.nombre_banco"/></td>
+                                </tr>
+                                <tr>
+                                    <td style="border-top: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000;" colspan="5" align="left" valign="middle" height="17">Pago parcial del precio de compra-venta de la parte acredora</td>
+                                    <td style="border: 1px solid #000000;" colspan="5" align="left" valign="middle"><span t-field="o.pago_acredor"/></td>
+                                </tr>
+                                <tr>
+                                    <td style="border-left: 1px solid #000000; border-right: 1px solid #000000;" colspan="5" align="left" valign="middle" height="17">CLABE de la cuenta de deposito de la parte acredora</td>
+                                    <td style="border: 1px solid #000000;" colspan="5" align="left" valign="middle"><span t-field="o.clabe_acredor"/></td>
+                                </tr>
+                                <tr>
+                                    <td style="border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000;" colspan="5" align="left" valign="middle" height="17">Nombre del banco depositario</td>
+                                    <td style="border: 1px solid #000000;" colspan="5" align="left" valign="middle"><span t-field="o.nombre_banco_acredor"/></td>
+                                </tr>
+                                <tr>
+                                    <td style="border: 1px solid #000000;" colspan="5" align="left" valign="middle" height="17">Numero de Credito del Titular</td>
+                                    <td style="border: 1px solid #000000;" colspan="5" align="left" valign="middle"><span t-field="o.numcredifona"/></td>
+                                </tr>
+                                <tr>
+                                    <td style="border: 1px solid #000000;" colspan="5" align="left" valign="middle" height="17">Importe garantizado con la hipoteca en PESOS</td>
+                                    <td style="border: 1px solid #000000;" colspan="5" align="left" valign="middle"><span t-field="o.importe_hipoteca"/></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <br/>
+                        <br/>
+                        <p align="justify">
+                            Los antecedentes, declaraciones y clausulas de los contratos deben ser redactados por usyed apegandose a los modelos de escritura y clausulas aprobadas y a las directrices establecidas por el INFONAVIT y asimismo sujetandose a las disposiciones legales vigentes en la materia, deacuerdo con lo estipulado en el Contrato de Prestacion de Servicios y sus anexos que suscrbio en este instituto.
+                            <br/>
+                            El Notario debera agregar al apendice de la escritura los documentos que se señale como sus anexos en las clausulas que se proponen den las "Condiciones Generales de Contratacion que ofrece el INFONAVIR a sus derechohabientes para la celebracion de contratos de Credito", publicadas en el portal de la pagina de internet del INFONAVIT en el sitio www.infonavit.org.mx
+                            <br/>
+                            Esta carta de instuccion notarial se notifica al Notario por medio del Sistema de Titulacion Notarial del INFONAVIT.
+                        </p>
+
+
+                    </div> <!---     DIV PAGE  -->
+                </t>
+            </t>    <!---     FOREACH DOCS  -->
+        </t>
+    </template>
+</data>
+</odoo>

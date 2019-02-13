@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="fraccionamiento"> 
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="o">
+                    <t t-call="web.external_layout">
+                        <div class="page">
+                            <div name="aling">
+                                <div name="right" style="text-align:right;"> 
+                                    <b>CASA TIPO: </b><span t-field="o.folio.tipo_casa"/><br/>
+                                    <b>CREDITO: </b><span t-field="o.tipocredito"/><br/>
+                                    <b>METROS SUP: </b><span t-field="o.folio.m_sup"/><br/>
+                                    <b>METROS CONST: </b><span t-field="o.folio.m_const"/><br/>
+                                    <b>SOFOL: </b><span t-field="o.folio.sofol"/><br/>
+                                    <b>DENOMINACION: </b> <span t-field="o.folio.denominacion"/><br/>
+                                </div>
+                                <div name="center" aling="center">
+
+                                </div>                                 
+                            </div>
+                            <h3>FRACCIONAMIENTO</h3>
+                            <br/>
+                            <p style="text-align:justify;">
+                                Estimados señores.
+                                <br/>
+                                Adjunto al presente <span t-field="o.tipo_pago"/> (cheque, deposito u otro), No. <span t-field="o.num_pago"/> de la cuenta No. <span t-field="o.num_cuenta"/> a cargo del Banco: <span t-field="o.nombre_banco"/> por la cantidad de: <span t-field="o.monto_pago"/> m.n librado por mi persona.
+                                <br/>
+                                Lo anterior con el objeto de que sea apartada por ustedes, si para ello no hubiera inconveniente, la siguiente unidad habitacional: <span t-field="o.folio.name"/> del Condominio  <span t-field="o.folio.mz_lote"/> de la calle: <span t-field="o.folio.calle"/> identificada con el No.<span t-field="o.folio.noext"/> de ubicación en la Colonia: <span t-field="o.folio.calle2"/> Municipio: <span t-field="o.folio.municipio"/> <span t-field="o.folio.estado"/>, en las condiciones anotadas en la presente.
+                                <br/>
+                                En tanto resuelven o no la presente oferta, los faculto para que hagan uso de la da cantidad en la forma que a ustedes les convenga, En caso de no interesarles mi oferta, deberán entregarme únicamente dicha suma menos los gastos estipulados en esta solicitud de compra, reconociendo por mi parte que no se ha establecido a su cargo, obligación de carácter alguna.
+                                Mis datos generales son los siguientes:
+                            </p>
+                            <table >
+                                <tr>
+                                    <td>
+                                        <b>Nombre: </b>
+                                    </td>
+                                    <td>
+                                        <span t-field="o.cliente.name"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <b>Dirección:</b>
+                                    </td>
+                                    <td>
+                                        <span t-field="o.cliente.street_name"/>, <span t-field="o.cliente.street_number"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <b>Colonia:</b>
+                                    </td>
+                                    <td>
+                                        <span t-field="o.cliente.l10n_mx_edi_colony"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <b>Entre las calles:</b>                                                
+                                    </td>
+                                    <td>
+                                        <span t-field="o.cliente.street_name"/>
+                                    </td>                                            
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <b>Teléfono particular:</b>
+                                    </td>
+                                    <td>
+                                        <span t-field="o.cliente.phone"/> 
+                                    </td>                                            
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <b>Teléfono Celular: </b>
+                                    </td>
+                                    <td>
+                                        <span t-field="o.cliente.mobile"/>
+                                    </td>                                            
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <b>Teléfono oficial: </b>
+                                    </td>
+                                    <td>
+                                        <span t-field="o.cliente.tel"/> 
+                                    </td>                                            
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <b>e-mail:</b>
+                                    </td>
+                                    <td>
+                                        <span t-field="o.cliente.email"/>
+                                    </td>                                            
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <b>Lugar de nacimiento:</b>
+                                    </td>
+                                    <td>
+                                        <span t-field="o.cliente.lugar_nacimiento"/>
+                                    </td>                                           
+                                </tr>                                                                               
+                                <tr>
+                                    <td>
+                                        <b>Fecha de Nacimiento:</b>
+                                    </td>
+                                    <td>
+                                        <span t-field="o.cliente.fechanac"/>
+                                    </td>                                           
+                                </tr>                                          
+                                <tr>
+                                    <td>
+                                        <b>Estado civil: </b>
+                                    </td>
+                                    <td>
+                                        <span t-field="o.cliente.estado_civil"/>
+                                    </td>                                           
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <b>Régimen Matrimonial:</b>
+                                    </td>
+                                    <td>
+                                       <span t-field="o.cliente.regimen_matrimonial"/>
+                                   </td>                                           
+                               </tr>
+                               <tr>
+                                <td>
+                                    <b>Nombre del Conyugue: </b>
+                                </td>
+                                <td>
+                                    <span t-if="o.cliente.name_cony" t-field="o.cliente.name_cony"/>
+                                </td>                                           
+                            </tr>                                         
+                            <tr>
+                                <td>
+                                    <b>R.F.C: </b>
+                                </td>
+                                <td>
+                                    <span t-field="o.cliente.rfc_cony"/>
+                                </td>                                           
+                            </tr>                                                                        
+                        </table>
+                        <br/>
+                        <div align="right">
+                            <span>Ciudad de Guadalajara, Jal a <span t-esc="context_timestamp(datetime.datetime.now()).strftime('%A %d %B %Y %H:%M')"/></span>
+                        </div>
+                        <table style="margin: auto;">
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <tr>
+                                <td>
+                                    <span style="text-align: center;">______________________________</span>
+                                    <h5 style="text-align: center;">Atentamente</h5>
+                                </td>
+                                <td width="30%"></td>
+                                <td>
+                                    <span style="text-align: center;">______________________________</span>
+                                    <h5 style="text-align: center;">Recibi la oferta</h5>
+                                </td>
+                            </tr>
+                        </table> 
+                    </div> <!---     DIV PAGE  -->
+                </t>
+            </t>    <!---     FOREACH DOCS  -->
+        </t>
+    </template>
+</data>
+</odoo>
+

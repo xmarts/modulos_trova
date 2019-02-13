@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="liquidacion_cliente"> 
+                <t t-call="web.html_container">
+                    <t t-foreach="docs" t-as="o">
+                        <t t-call="web.external_layout">
+                            <div class="page">
+                            <t t-set="valor_total" t-value="0"/>
+                            <t t-set="total_recibir" t-value="0"/>
+                            <t t-set="porcent_comision" t-value="o.folio.paquete.comision"/>
+                            <t t-set="gestion" t-value="o.gestion"/>
+                            <div class="date" style="text-align:right">
+                            </div>
+                            <h3 style="text-align:center">Liquidacion</h3>
+                            <br/>
+                            <br/>
+                            <table> 
+                                <tr>
+                                    <td><strong>NOMBRE: </strong></td>
+                                    <td><span t-field="o.cliente" /></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>FRACC: </strong></td>
+                                    <td><span t-field="o.folio.fracc" /></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>PROTOTIPO: </strong></td>
+                                    <td><span t-field="o.folio.prototipo"/></td>
+                                </tr> 
+                                <tr>
+                                    <td><strong>UBICACION: </strong></td>
+                                    <td><span t-field="o.folio.calle"/></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>ESQUEMA: </strong></td>
+                                    <td><span t-field="o.cliente.esque_credito"/></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>PLAZA: </strong></td>
+                                    <td><span t-field="o.folio.municipio"/></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>FOLIO REAL:</strong></td>
+                                    <td><span t-field="o.folio"/></td>
+                                </tr>
+                            </table>
+                            <br/><br/><br/>
+
+                            <table class="operations" style="margin:auto;" width="100%">
+                                <tr>
+                                    <td width="70%"><strong>Precio de Venta</strong></td>
+                                    <td><span t-field="o.folio.precioventa"/></td>
+                                </tr>
+                                <tr>
+                                    <td width="70%"><strong>Piso</strong></td>
+                                    <td><span t-field="o.folio.piso_precio"/></td>
+                                </tr>
+                                <tr>
+                                    <td width="70%"><strong>Protecciones</strong></td>
+                                    <td><span t-field="o.folio.proteccion_precio"/></td>
+                                </tr>
+                                <tr>
+                                    <td width="70%"><strong>Cocina</strong></td>
+                                    <td><span t-field="o.folio.cocina_precio"/></td>
+                                </tr>
+                                <tr>
+                                    <td width="70%"><strong>Avaluo Comercial</strong></td>
+                                    <td><span t-field="o.folio.aca_precio"/></td>
+                                </tr>
+                                <tr>
+                                    <td width="70%"><strong>Avaluo Catastral</strong></td>
+                                    <td><span t-field="o.folio.avalcat_precio"/></td>
+                                </tr>
+                                <tr>
+                                    <td width="70%"><strong>CLG</strong></td>
+                                    <td><span t-field="o.folio.clg_precio"/></td>
+                                </tr>
+                                <tr>
+                                    <td width="70%"><strong>Impuestos y derechos</strong></td>
+                                    <td><span t-field="o.folio.impuestos_derechos"/></td>
+                                </tr>
+                                 <tr>
+                                    <td width="70%"><strong>Gestion de Credito</strong></td>
+                                    <td><span t-field="o.folio.gestion_credito"/></td>
+                                </tr>
+                                <tr>
+                                    <td><br/><br/></td>
+                                </tr>
+                                <tr>
+                                    <t t-set="valor_total" t-value="valor_total + (o.folio.precioventa + o.folio.piso_precio + o.folio.proteccion_precio + o.folio.cocina_precio + o.folio.aca_precio + o.folio.clg_precio + o.folio.impuestos_derechos + o.folio.gestion_credito)"/>
+                                    <td width="70%" style="text-align:right;"><strong>Valor Total: </strong></td>
+                                    <td><span t-esc="'{0:.2f}'.format(valor_total)"/></td>
+                                </tr>
+                               <tr>
+                                    <td><br/><br/></td>
+                                </tr>
+                                <tr>
+                                    <td width="70%"><strong>Deposito Quila: </strong></td>
+                                    <td><span t-field="o.deposito_quila"/></td>
+                                </tr>
+                                <tr>
+                                    <td width="70%"><strong>Deposito Infonavit: </strong></td>
+                                    <td><span t-field="o.deposito_infonavit"/></td>
+                                </tr> 
+                                <tr>
+                                    <td width="70%"><strong>Pago Cuv: </strong></td>
+                                    <td><span t-field="o.pago_cuv"/></td>
+                                </tr>
+                                <tr>
+                                    <td width="70%"><strong>Deposito Cliente: </strong></td>
+                                    <td><span t-field="o.deposito_cliente"/></td>
+                                </tr>
+                                <tr>
+                                    <td><br/><br/></td>
+                                </tr>
+                                <tr>
+                                    <td width="70%" style="text-align:right;"><strong>Total a Recibir: </strong></td>
+                                    <t t-set="total_recibir" t-value="total_recibir  + (o.deposito_quila + o.deposito_infonavit + o.pago_cuv + o.deposito_cliente)"/>
+                                    <td><span t-esc="'{0:.2f}'.format(total_recibir)"/></td>
+                                </tr>
+                                <tr>
+                                    <td><br/><br/></td>
+                                </tr>
+                                <tr>
+                                    <td width="70%" style="text-align:right;"><strong>Diferencia a Favor o Encotnra: </strong></td>
+                                    <td><span t-esc="'{0:.2f}'.format(total_recibir - valor_total)"/></td>
+                                </tr>                                                             
+                            </table>
+                            <table style="align:center;">
+                                <tr>
+                                    <td width="20%" style="text-align:center;"><strong>Comision</strong></td>
+                                    <td width="20%" style="text-align:center;"><strong>IVA</strong></td>
+                                    <td width="20%" style="text-align:center;"><strong>GESTION</strong></td>
+                                    <td width="20%" style="text-align:center;"><strong>TOTAL</strong></td>
+                                </tr>
+                                <tr>
+                                    <td width="20%" style="text-align:center;">
+                                        <span t-esc="'{0:.2f}'.format(porcent_comision * valor_total)"/>
+                                    </td>
+
+                                    <td  width="20%" style="text-align:center;">
+                                        <span t-esc="'{0:.2f}'.format(0.16 * (porcent_comision * valor_total))"/>
+                                    </td>
+
+                                    <td  width="20%" style="text-align:center;">
+                                        <span t-esc="'{0:.2f}'.format(gestion)"/>
+                                    </td>
+                                    <td  width="20%" style="text-align:center;">
+                                    <span t-esc="'{0:.2f}'.format(gestion + (0.16 * (porcent_comision * valor_total)) + (porcent_comision * valor_total))"/></td>
+                                </tr>
+                            </table>
+                            </div> <!---     DIV PAGE  -->
+                        </t>
+                    </t>    <!---     FOREACH DOCS  -->
+                </t>
+        </template>
+    </data>
+</odoo>

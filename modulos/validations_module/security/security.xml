@@ -1,0 +1,14 @@
+<odoo>
+	<data>
+		<record id="trova_group_cateogory" model="ir.module.category">
+	        <field name="name">GROUP_TROVA</field>
+	        <field name="sequence">50</field>
+	    </record>
+	    <record id="group_trova" model="res.groups">
+	        <field name="name">TROVA GROUP</field>
+	        <field name="category_id" ref="trova_group_cateogory"/>
+	    </record>
+	</data>
+</odoo>
+
+

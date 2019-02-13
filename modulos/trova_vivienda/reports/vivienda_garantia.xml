@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="vivienda_garantia"> 
+                <t t-call="web.html_container">
+                    <t t-foreach="docs" t-as="o">
+                        <t t-call="web.external_layout">
+                            <div class="page">
+                                 <t t-if="not o and doc">
+                                    <t t-set="o" t-value="doc"/>
+                                </t>
+                                <t t-if="o and 'company_id' in o">
+                                    <t t-set="company" t-value="o.company_id"></t>
+                                </t>
+                                <t t-if="not o or not 'company_id' in o">
+                                    <t t-set="company" t-value="res_company"></t>
+                                </t>
+                                <h3 style="text-align: center;">Acta de Recepción de Vivienda</h3>
+                                <br/>
+                                <br/>
+                                <p style="text-align: justify;"> 
+                                    Por medio del presente, La empresa <span t-esc="company.name"/> representada por <span t-esc="company.partner_id.user_id.name"/> hacemos entrega la Sr. (a) <span t-field="o.cliente"/> La vivienda ubicada en la calle <span t-field="o.folio_vivienda.calle"/> con No. Ext <span t-field="o.folio_vivienda.noext"/>, Mza y Lote <span t-field="o.folio_vivienda.mz_lote"/>, Colonia <span t-field="o.folio_vivienda.calle2"/>, en el Municipio de <span t-field="o.folio_vivienda.municipio"/>, <span t-field="o.folio_vivienda.estado"/>.
+                                </p>
+                                    <br/>
+                                    <h3 style="text-align: center;">Acta de Acuerdos</h3>
+                                    <br/>
+                                    <br/>
+                                    <p style="text-align: justify;">
+                                    Acta de Acuerdos que celebran el Sr. (a) <span t-field="o.cliente"/> 
+                                    
+                                    <br/>
+
+                                    Que adquiere la vivienda que se especifica en la parte superior y que para efectos de esta acta se le denominara “CLIENTE” y la empresa <span t-esc="company.name"/> que efectuó y bajo su responsabilidad corrió la reparación, mantenimiento, corrección y acondicionamiento de la misma vivienda, que para el efecto de esta acta denominaremos el “HABILITADOR”. 
+
+                                    <br/>
+                                    <br/>
+
+                                    El “CLIENTE” en este acto está recibiendo un a casa habitación a su entera satisfacción y ha sido acompañado por perito conocedor de su confianza y quien tras haber recibido de mano del “HABLILITADOR” la vivienda, acepta expresamente que recibe el bien en óptimas condiciones para habilitarla y que no existe daños en ella, ni cosa que reclamar de manera futura que no esté incluida en Garantía.
+
+                                    <br/>
+                                    <br/>
+
+                                    El “HABILITADOR” en este acto otorga al “CLIENTE” las siguientes GARANTÍAS:
+                                    </p>
+                                    <br/>
+                                    <br/>
+                                    <table width="100%" cellspacing="0" cellpadding="7" style="align:center;" >
+                                        <tbody>
+                                            <tr valign="top">
+                                                <td style="border: 1px solid #00000a; padding: 0cm 0.19cm 0cm 0.2cm;vertical-align: middle;" width="181">
+                                                    <p align="center"><strong>CONCEPTO</strong></p>
+                                                </td>
+                                                <td style="border: 1px solid #00000a; padding: 0cm 0.19cm 0cm 0.2cm;vertical-align: middle;" width="182">
+                                                    <p align="center"><strong>DESCRIPCION</strong></p>
+                                                </td>
+                                                <td style="border: 1px solid #00000a; padding: 0cm 0.19cm 0cm 0.2cm;vertical-align: middle;" width="181">
+                                                    <p align="center"><strong>VIGENCIA</strong></p>
+                                                </td>
+                                            </tr>
+                                            <tr valign="top">
+                                                <td style="border: 1px solid #00000a; padding: 0cm 0.19cm 0cm 0.2cm;vertical-align: middle;" width="181">
+                                                    <p align="justify">Instalación Eléctrica</p>
+                                                </td>
+                                                <td style="border: 1px solid #00000a; padding: 0cm 0.19cm 0cm 0.2cm;vertical-align: middle;" width="182">
+                                                    <p align="justify">Cortos Circuitos, Fallas en el Encendido de alguna salida, Falta de corriente en Contactos y Apagadores</p>
+                                                </td>
+                                                <td style="border: 1px solid #00000a; padding: 0cm 0.19cm 0cm 0.2cm;vertical-align: middle;" width="181">
+                                                    <p align="center" t-if="o.instal_electric == True">1 mes</p>
+                                                    <p align="center" t-if="o.instal_electric == False">No cuenta con esta garantia</p>
+                                                </td>
+                                            </tr>
+                                            <tr valign="top">
+                                                <td style="border: 1px solid #00000a; padding: 0cm 0.19cm 0cm 0.2cm;vertical-align: middle;" width="181">
+                                                    <p align="justify">Instalación Hidráulica</p>
+                                                </td>
+                                                <td style="border: 1px solid #00000a; padding: 0cm 0.19cm 0cm 0.2cm;vertical-align: middle;" width="182">
+                                                    <p align="justify">Tuberías tapadas, Tuberíass desoldadas en sus piezas, Fuga de Agua</p>
+                                                </td>
+                                                <td style="border: 1px solid #00000a; padding: 0cm 0.19cm 0cm 0.2cm;vertical-align: middle;" width="181">
+                                                    <p align="center" t-if="o.instal_hidraulica == True">1 mes</p>
+                                                    <p align="center" t-if="o.instal_hidraulica == False">No cuenta con esta garantia</p>
+                                                </td>
+                                            </tr>
+                                            <tr valign="top">
+                                                <td style="border: 1px solid #00000a; padding: 0cm 0.19cm 0cm 0.2cm;vertical-align: middle;" width="181">
+                                                    <p align="justify">Instalación Sanitaria</p>
+                                                </td>
+                                                <td style="border: 1px solid #00000a; padding: 0cm 0.19cm 0cm 0.2cm;vertical-align: middle;" width="182">
+                                                    <p align="justify">Tuberías tapada, Fuga de agua</p>
+                                                </td>
+                                                <td style="border: 1px solid #00000a; padding: 0cm 0.19cm 0cm 0.2cm;vertical-align: middle;" width="181">
+                                                    <p align="center" t-if="o.instal_sanitaria == True">1 mes</p>
+                                                    <p align="center" t-if="o.instal_sanitaria == False">No cuenta con esta garantia</p>
+                                                </td>
+                                            </tr>
+                                            <tr valign="top">
+                                                <td style="border: 1px solid #00000a; padding: 0cm 0.19cm 0cm 0.2cm;vertical-align: middle;" width="181">
+                                                    <p align="justify">Acabados</p>
+                                                </td>
+                                                <td style="border: 1px solid #00000a; padding: 0cm 0.19cm 0cm 0.2cm;vertical-align: middle;" width="182">
+                                                    <p align="justify">Desperfectos en Puertas y Ventanas</p>
+                                                </td>
+                                                <td style="border: 1px solid #00000a; padding: 0cm 0.19cm 0cm 0.2cm;vertical-align: middle;" width="181">
+                                                    <p align="center" t-if="o.acabados == True">1 mes</p>
+                                                    <p align="center" t-if="o.acabados == False">No cuenta con esta garantia</p>
+                                                </td>
+                                            </tr>
+                                            <tr valign="top">
+                                                <td style="border: 1px solid #00000a; padding: 0cm 0.19cm 0cm 0.2cm;vertical-align: middle;" width="181">
+                                                    <p align="justify">Impermeabilizante</p>
+                                                </td>
+                                                <td style="border: 1px solid #00000a; padding: 0cm 0.19cm 0cm 0.2cm;vertical-align: middle;" width="182">
+                                                    <p align="justify">Desperfectos en Impermeabilizacionn</p>
+                                                </td>
+                                                <td style="border: 1px solid #00000a; padding: 0cm 0.19cm 0cm 0.2cm;vertical-align: middle;" width="181">
+                                                    <p align="center" t-if="o.impermeable == True">6 mes</p>
+                                                    <p align="center" t-if="o.impermeable == False">No cuenta con esta garantia</p>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td style="border: 1px solid #00000a; padding: 0cm 0.19cm 0cm 0.2cm;vertical-align: middle; vertical-align: middle;" rowspan="3" width="181" >
+                                                    <p align="center">Albañilería</p>
+                                                </td>
+                                                <td style="border: 1px solid #00000a; padding: 0cm 0.19cm 0cm 0.2cm;vertical-align: middle;" valign="top" width="182">
+                                                    <p align="justify">Loseta y Azulejos Sueltos</p>
+                                                </td>
+                                                <td style="border: 1px solid #00000a; padding: 0cm 0.19cm 0cm 0.2cm;vertical-align: middle; vertical-align: middle;" rowspan="3" width="181">
+                                                    <p align="center" t-if="o.albañilería == True">3 mes</p>
+                                                    <p align="center" t-if="o.albañilería == False">No cuenta con esta garantia</p>
+                                                </td>
+                                            </tr>
+                                            <tr valign="top">
+                                                <td style="border: 1px solid #00000a; padding: 0cm 0.19cm 0cm 0.2cm;vertical-align: middle;" width="182">
+                                                    <p align="justify">Fisuras</p>
+                                                </td>
+                                            </tr>
+                                            <tr valign="top">
+                                                <td style="border: 1px solid #00000a; padding: 0cm 0.19cm 0cm 0.2cm;vertical-align: middle;" width="182" >
+                                                    <p align="justify">Goteras y Humedad</p>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <b>*Nota; las garantías empiezan a partir del día de recepción de la vivienda.</b>
+                                                           
+                            </div> <!---     DIV PAGE  -->
+                        </t>
+                    </t>    <!---     FOREACH DOCS  -->
+                </t>
+        </template>
+    </data>
+</odoo>
+

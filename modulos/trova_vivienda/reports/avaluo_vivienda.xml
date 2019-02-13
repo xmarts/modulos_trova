@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="avaluo_vivienda1"> 
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="o">
+                    <t t-call="web.external_layout">
+                        <div class="page">
+                            <table align="center">
+                                <tr hight="30%">
+                                    <td width="60%" style="text-align:center;" background-color="#3471f2b">SOLICITUD DE AVALUO INMOBILIARIO Y DICTAMEN TECNICO DE CALIDAD</td>
+                                    <td width="20%" align="left" style="position:relative;"><img src="/trova_vivienda/static/src/img/infonavit.png" style="max-height: 200px; width:111px;"/></td>
+                                </tr><br/>
+                                <tr border="1">
+                                    <td >
+                                        <strong>DESTINO DEL CREDITO: </strong> <span t-field="o.destino_credito" />
+                                    </td>
+                                </tr>
+                                <br/>
+                            </table>
+                            <br/>
+                            <div align="center">
+                                <h3 >1. DATOS DE IDENTIFICACION DEL DERECHOHABIENTE</h3>
+                            </div>
+                            <table border="0" cellspacing="0"><colgroup width="106"></colgroup> <colgroup width="163"></colgroup> <colgroup width="249"></colgroup> <colgroup width="137"></colgroup> <colgroup width="176"></colgroup> <colgroup width="135"></colgroup> <colgroup width="85"></colgroup>
+                            <tbody>
+                                <tr>
+                                    <td style="border-top: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000;" colspan="7" align="center" valign="middle" height="17"><span t-field="o.nss"/></td>
+                                </tr>
+                                <tr>
+                                    <td style="border-left: 1px solid #000000; border-right: 1px solid #000000;" colspan="7" align="center" valign="middle" height="17">Numero de Seguro social (NSS)</td>
+                                </tr>
+                                <tr>
+                                    <td style="border-left: 1px solid #000000;" align="left" height="17">Nombre:</td>
+                                    <td align="left"><span t-field="o.cliente" /></td>
+                                    <td align="left"></td>
+                                    <td align="left"></td>
+                                    <td align="left"></td>
+                                    <td align="left"></td>
+                                    <td style="border-right: 1px solid #000000;" align="left"></td>
+                                </tr>
+                                <tr>
+                                    <td style="border-left: 1px solid #000000;" align="left" height="17">Domicilio Actual:</td>
+                                    <td align="left">Calle:</td>
+                                    <td align="left"><span><span t-field="o.cliente.street_name"/></span></td>
+                                    <td align="left"></td>
+                                    <td align="left"></td>
+                                    <td align="left"></td>
+                                    <td style="border-right: 1px solid #000000;" align="left"></td>
+                                </tr>
+                                <tr>
+                                    <td style="border-left: 1px solid #000000;" align="left" height="17"></td>
+                                    <td align="left">Colonia o Facc:</td>
+                                    <td align="left"><span t-field="o.cliente.l10n_mx_edi_colony"/></td>
+                                    <td align="left"></td>
+                                    <td align="left"></td>
+                                    <td align="left"></td>
+                                    <td style="border-right: 1px solid #000000;" align="left"></td>
+                                </tr>
+                                <tr>
+                                    <td style="border-left: 1px solid #000000;" align="left" height="17"></td>
+                                    <td align="left">Estado (Entidad):</td>
+                                    <td align="left"><span t-field="o.cliente.state_id.name"/></td>
+                                    <td align="left"><span>Codigo Postal: <span t-field="o.cliente.zip"/></span></td>
+                                    <td align="left">Municipio: <span t-field="o.cliente.city"/></td>
+                                    <td align="left"></td>
+                                    <td style="border-right: 1px solid #000000;" align="left"></td>
+                                </tr>
+                                <tr>
+                                    <td style="border-left: 1px solid #000000;" align="left" height="17"></td>
+                                    <td align="left"></td>
+                                    <td align="left"></td>
+                                    <td align="left"></td>
+                                    <td align="right">Telefono Casa:</td>
+                                    <td align="left"><span t-field="o.cliente.phone"/></td>
+                                    <td style="border-right: 1px solid #000000;" align="left"></td>
+                                </tr>
+                                <tr>
+                                    <td style="border-left: 1px solid #000000;" align="left" height="17"></td>
+                                    <td align="left"></td>
+                                    <td align="left"></td>
+                                    <td align="left"></td>
+                                    <td align="right">Telefono Trabajo:</td>
+                                    <td align="left"><span t-field="o.cliente.tel"/></td>
+                                    <td style="border-right: 1px solid #000000;" align="left"></td>
+                                </tr>
+                                <tr>
+                                    <td style="border-left: 1px solid #000000;" align="left" height="17"></td>
+                                    <td align="left"></td>
+                                    <td align="left"></td>
+                                    <td align="left"></td>
+                                    <td align="right">Telefono Celular:</td>
+                                    <td align="left"><span t-field="o.cliente.mobile"/></td>
+                                    <td style="border-right: 1px solid #000000;" align="left"></td>
+                                </tr>
+                                <tr>
+                                    <td style="border-bottom: 1px solid #000000; border-left: 1px solid #000000;" align="left" height="17"></td>
+                                    <td style="border-bottom: 1px solid #000000;" align="left"></td>
+                                    <td style="border-bottom: 1px solid #000000;" align="left"></td>
+                                    <td style="border-bottom: 1px solid #000000;" align="left"></td>
+                                    <td style="border-bottom: 1px solid #000000;" align="left"></td>
+                                    <td style="border-bottom: 1px solid #000000;" align="left"></td>
+                                    <td style="border-bottom: 1px solid #000000; border-right: 1px solid #000000;" align="left"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <br/>
+                        <div align="center">
+                            <h3 >2. DATOS DEL PROPIETARIO ACTUAL DE LA VIVIENDA</h3>
+                        </div>
+                        <table border="0" cellspacing="0"><colgroup width="214"></colgroup> <colgroup width="250"></colgroup> <colgroup width="111"></colgroup> <colgroup width="153"></colgroup> <colgroup width="197"></colgroup>
+                        <tbody>
+                            <tr>
+                                <td style="border-top: 1px solid #000000; border-left: 1px solid #000000;" align="left" height="17">Nombre (s):</td>
+                                <td style="border-top: 1px solid #000000; border-right: 1px solid #000000;" align="left"><span t-field="o.folio.prop_vivienda"/></td>
+                                <td style="border-top: 1px solid #000000; border-left: 1px solid #000000;" align="left">Domicilio Actual</td>
+                                <td style="border-top: 1px solid #000000;" align="left">Calle y Numero:</td>
+                                <td style="border-top: 1px solid #000000; border-right: 1px solid #000000;" align="left"><span t-field="o.folio.prop_vivienda.street_name"/></td>
+                            </tr>
+                            <tr>
+                                <td style="border-left: 1px solid #000000;" align="left" height="17">R.F.C.</td>
+                                <td style="border-right: 1px solid #000000;" align="left"><span t-field="o.folio.prop_vivienda.vat"/></td>
+                                <td style="border-left: 1px solid #000000;" align="left"></td>
+                                <td align="left">Colonia:</td>
+                                <td style="border-right: 1px solid #000000;" align="left"><span t-field="o.folio.prop_vivienda.l10n_mx_edi_colony"/></td>
+                            </tr>
+                            <tr>
+                                <td style="border-left: 1px solid #000000;" align="left" height="17">Nombre del Acreedor Hipotecario:</td>
+                                <td style="border-right: 1px solid #000000;" align="left"><span t-field="o.folio.acredor_hipotecario"/></td>
+                                <td style="border-left: 1px solid #000000;" align="left"></td>
+                                <td align="left">Municipio o Delegacion:</td>
+                                <td style="border-right: 1px solid #000000;" align="left"><span t-field="o.folio.prop_vivienda.city"/></td>
+                            </tr>
+                            <tr>
+                                <td style="border-left: 1px solid #000000;" align="left" height="17">R.F.C.</td>
+                                <td style="border-right: 1px solid #000000;" align="left"><span t-field="o.folio.rfc_acredor"/></td>
+                                <td style="border-left: 1px solid #000000;" align="left"></td>
+                                <td align="left">Estado:</td>
+                                <td style="border-right: 1px solid #000000;" align="left"><span t-field="o.folio.prop_vivienda.state_id.name"/></td>
+                            </tr>
+                            <tr>
+                                <td style="border-left: 1px solid #000000;" align="left" height="17"></td>
+                                <td style="border-right: 1px solid #000000;" align="left"></td>
+                                <td style="border-left: 1px solid #000000;" align="left"></td>
+                                <td align="left"></td>
+                                <td style="border-right: 1px solid #000000;" align="left"></td>
+                            </tr>
+                            <tr>
+                                <td style="border-left: 1px solid #000000;" align="left" height="17"></td>
+                                <td style="border-right: 1px solid #000000;" align="left"></td>
+                                <td style="border-left: 1px solid #000000;" align="left">Telefono Trabajo:</td>
+                                <td align="left"><span t-field="o.folio.prop_vivienda.mobile"/></td>
+                                <td style="border-right: 1px solid #000000;" align="left"></td>
+                            </tr>
+                            <tr>
+                                <td style="border-bottom: 1px solid #000000; border-left: 1px solid #000000;" align="left" height="17"></td>
+                                <td style="border-bottom: 1px solid #000000; border-right: 1px solid #000000;" align="left"></td>
+                                <td style="border-bottom: 1px solid #000000; border-left: 1px solid #000000;" align="left">Telefono Celular:</td>
+                                <td style="border-bottom: 1px solid #000000;" align="left"><span t-field="o.folio.prop_vivienda.tel"/></td>
+                                <td style="border-bottom: 1px solid #000000; border-right: 1px solid #000000;" align="left"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <br/>
+                    <div align="center">
+                        <h3 >3. DATOS DEL PROPIETARIO ACTUAL DE LA VIVIENDA</h3>
+                    </div>
+                    <table border="0" cellspacing="0"><colgroup width="127"></colgroup> <colgroup width="193"></colgroup> <colgroup width="85"></colgroup> <colgroup width="193"></colgroup> <colgroup width="171"></colgroup> <colgroup width="198"></colgroup> <colgroup width="85"></colgroup>
+                    <tbody>
+                        <tr>
+                            <td style="border-top: 1px solid #000000; border-left: 1px solid #000000;" colspan="4" rowspan="2" align="left" height="34">CLAVE DEL CONJUNTO HABITACIONAL DE 16 DIGITOS (SOLO EN CASOS DE OFERTA REGISTRADA)</td>
+                            <td style="border-top: 1px solid #000000;" align="center"></td>
+                            <td style="border-top: 1px solid #000000;" align="left"></td>
+                            <td style="border-top: 1px solid #000000; border-right: 1px solid #000000;" align="left"></td>
+                        </tr>
+                        <tr>
+                            <td align="left"></td>
+                            <td align="left"></td>
+                            <td style="border-right: 1px solid #000000;" align="left"></td>
+                        </tr>
+                        <tr>
+                            <td style="border-left: 1px solid #000000;" align="left" height="17">CALLE:</td>
+                            <td align="left"><span t-field="o.folio.calle"/></td>
+                            <td align="left">No. Ext.</td>
+                            <td align="left"><span t-field="o.folio.noext"/></td>
+                            <td align="left">MZA:</td>
+                            <td align="left"><span t-field="o.folio.mz_lote"/></td>
+                            <td style="border-right: 1px solid #000000;" align="left"></td>
+                        </tr>
+                        <tr>
+                            <td style="border-left: 1px solid #000000;" align="left" height="17"></td>
+                            <td align="left"></td>
+                            <td align="left">No. Int.</td>
+                            <td align="left"><span t-field="o.folio.noint"/></td>
+                            <td align="left">Colonia o Fraccionamiento:</td>
+                            <td align="left"><span t-field="o.folio.calle2"/></td>
+                            <td style="border-right: 1px solid #000000;" align="left"></td>
+                        </tr>
+                        <tr>
+                            <td style="border-left: 1px solid #000000;" align="left" height="17"></td>
+                            <td align="left"></td>
+                            <td align="left"></td>
+                            <td align="left"></td>
+                            <td align="left"></td>
+                            <td align="left"></td>
+                            <td style="border-right: 1px solid #000000;" align="left"></td>
+                        </tr>
+                        <tr>
+                            <td style="border-left: 1px solid #000000;" align="left" height="17">Municipio o Delegacion</td>
+                            <td align="left"><span t-field="o.folio.municipio"/></td>
+                            <td align="left"></td>
+                            <td align="left">Estado (Entidad)</td>
+                            <td align="left"><span t-field="o.folio.estado"/></td>
+                            <td align="left">Codigo Postal: <field t-field="o.folio.cp"/></td>
+                            <td style="border-right: 1px solid #000000;" align="left"></td>
+                        </tr>
+                        <tr>
+                            <td style="border-left: 1px solid #000000;" align="left" height="17"></td>
+                            <td align="left"></td>
+                            <td align="left"></td>
+                            <td align="left"></td>
+                            <td align="left"></td>
+                            <td align="left"></td>
+                            <td style="border-right: 1px solid #000000;" align="left"></td>
+                        </tr>
+                        <tr>
+                            <td style="border-left: 1px solid #000000;" align="left" height="17">Antiguedad</td>
+                            <td align="left"><span t-field="o.folio.antiguedad"/> Meses</td>
+                            <td align="left"></td>
+                            <td align="left"></td>
+                            <td align="left"></td>
+                            <td align="left"></td>
+                            <td style="border-right: 1px solid #000000;" align="left"></td>
+                        </tr>
+                        <tr>
+                            <td style="border-left: 1px solid #000000;" align="left" height="17"></td>
+                            <td align="left"></td>
+                            <td align="left"></td>
+                            <td align="left"></td>
+                            <td align="left"></td>
+                            <td align="left"></td>
+                            <td style="border-right: 1px solid #000000;" align="left"></td>
+                        </tr>
+                        <tr>
+                            <td style="border-bottom: 1px solid #000000; border-left: 1px solid #000000;" align="left" height="17"></td>
+                            <td style="border-bottom: 1px solid #000000;" align="left"></td>
+                            <td style="border-bottom: 1px solid #000000;" align="left"></td>
+                            <td style="border-bottom: 1px solid #000000;" align="left"></td>
+                            <td style="border-bottom: 1px solid #000000;" align="left"></td>
+                            <td style="border-bottom: 1px solid #000000;" align="left"></td>
+                            <td style="border-bottom: 1px solid #000000; border-right: 1px solid #000000;" align="left"></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <br/>
+                <br/>
+                <br/>
+                <div align="center">
+                    <h3 >4. TRAMITES, ACLARACIONES O QUEJAS</h3>
+                </div>
+                <table border="0" cellspacing="0"><colgroup span="11" width="100%"></colgroup>
+                <tbody>
+                    <tr>
+                        <td style="border-top: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000;" colspan="11" align="center" valign="middle" height="17">En el INFONAVIT todos los tramites son gratuitos</td>
+                    </tr>
+                    <tr>
+                        <td style="border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000;" colspan="11" align="justify" valign="middle" height="119"><P>El tramite puede presentarse en cualquiera oficina de INFONAVIR, de lunes a viernes de 8:30 a 14:00 horas <br/>
+                        Para aclaraciones, quejas o denuncias sobre este tramite, diriirse al sitio de internet <a href="http://www.infonavit.org.mx/">www.infonavit.org.mx</a>, a los kioskos o comunicarse a INFONATEL en Mexico D.F.: 91-71-50-50, Interior de la Republica: 01-800-00-83-900.
+                        <br/>
+                        El interesado debera presentar esta Solicitud debidamente llenada, ante una instancia de valuacion autorizada por el INFONAVIT.</P></td>
+                    </tr>
+                    <tr>
+                        <td colspan="11" align="center" valign="middle" height="17">Fecha:</td>
+                    </tr>
+                </tbody>
+            </table>
+                
+
+        </div> <!---     DIV PAGE  -->
+    </t>
+</t>    <!---     FOREACH DOCS  -->
+</t>
+</template>
+</data>
+</odoo>

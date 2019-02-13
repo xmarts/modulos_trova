@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="acta_recepcion"> 
+                <t t-call="web.html_container">
+                    <t t-foreach="docs" t-as="o">
+                        <t t-call="web.external_layout">
+                            <div class="page">
+                            <br/>
+                            <p style="text-align: justify;"> 
+                                La garantía de tiempo que otorga el “HABILITADOR” no será válida en los casos en el que, por negligencia, la uso o daño intencional causaran el “CLIENTE” a los trabajos que se mencionan con anterioridad, deberán realizarse un presupuesto extraordinario.
+                            <br/>
+                               El “HABILITADOR” reconoce que ha utilizado materiales clasificados de calidad y que es responsable de los daños realizados.
+                            <br/>
+                                Para cualquier duda, queja o aclaración el cliente podrá comunicarse a:
+                            </p>
+                            <br/>
+                            
+                            <ul>
+                                <li><strong>Nombre Constructora y Domicilio: SANT ROD INMOBILIARIA, SA de CV, Av. Niños Héroes #2285 int 201, Col. Moderna, Guadalajara, Jalisco</strong></li>
+                                <li><strong>Teléfonos: 36150195 o 36162385</strong></li>
+                                <li><strong>Correo: ventas@trovainmobiliaria.com</strong></li>
+                            </ul> 
+                            <br/>
+
+                            <p style="text-align: justify;">
+                                En el supuesto caso de haber aceptado recibir la vivienda en condiciones distintas a las que se acordaron en las clausulas anteriores el “CLIENTE” y el “HABILITADOR” acuerdan los siguientes puntos especiales (enliste faltante de la vivienda pendientes):
+                            </p>             
+                            <br/>
+                            <span t-field="o.pendientes"/>  
+                            <br/>
+                            <p style="text-align: justify;">
+                                <strong>
+                                    Todos los antes mencionados quedan concluidos para la siguiente fecha: 
+                                </strong> <span t-field="o.fecha_concluido"/>
+                            </p>
+                            <p style="text-align: justify;">
+                                El “HABILITADOR” en el supuesto caso de entregar la vivienda en condiciones distintas se compromete en anexar este documento avaluó que contenga fotografías firmadas alcance por el “CLIENTE”, aceptando los daños o situaciones especiales que por así convenir a sus intereses personales RECIBE.
+                            </p>
+                            <br/>
+                            <p style="text-align: justify;">
+                                A partir de la fecha de firma de la presente acta, el cliente asume completa responsabilidad de la vivienda descrita, liberando el “habilitador” de  cualquier situación no establecida exclusivamente en la cláusula séptima. (Firma y copia del IFE o INE del cliente Obligatorios).
+                            </p>
+                            <br/>
+                            
+                        <table style="margin: auto;">
+
+                            <tr>
+                                <td>
+                                    <spand style="text-align: left;">______________________________</spand>
+                                    <h5 style="text-align: center;"><spand t-field="o.cliente"/></h5>
+                                    <h5 style="text-align: center;">CLIENTE</h5>
+                                </td>
+                                <td width="30%"></td>
+                                <td>
+                                    <spand style="text-align: left;">______________________________</spand>
+                                    <h5 style="text-align: center;">SANT ROD INMOBILIARIA, SA DE CV</h5>
+                                    <h5 style="text-align: center;">HABILITADOR</h5>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+</data>
+</odoo>

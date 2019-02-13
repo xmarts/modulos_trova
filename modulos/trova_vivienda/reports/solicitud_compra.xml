@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="solicitud_compra"> 
+                <t t-call="web.html_container">
+                    <t t-foreach="docs" t-as="o">
+                        <t t-call="web.external_layout">
+                            <div class="page">
+                            <br/>
+                            	<h3>SOLICITUD DE COMPRA</h3>
+                            	<p aling="justify">
+    								Medio por el cual me entere del desarrollo: <span t-field="o.medio_enterado"/>
+
+    								Esta es una Solicitud de Compra y esta sujeta a la aceptación de los propietarios del inmueble.
+
+    								Solicito comprar la casa Ubicada en la calle <span t-field="o.folio.calle"/> con No. Ext <span t-field="o.folio.noext"/>, Mza y Lote <span t-field="o.folio.mz_lote"/>, Colonia <span t-field="o.folio.calle2"/>, en el Municipio de <span t-field="o.folio.municipio"/>, <span t-field="o.folio.estado"/>. <br/>
+    								Precio de la casa $<span t-field="o.folio.precioventa"/> , más el precio de mejoras de: <span t-field="o.precio_mejoras"/> que se pagará el día <span t-field="o.fecha_pago_mejoras"/> que da un total de <span t-field="o.total_pagar"/> pesos, que será pagado en moneda nacional al valor aplicable en la fecha de pago.<br/>
+    								Enganche total: <span t-field="o.enganche_vivienda"/> pesos, apartado: <span t-field="o.apartado_vivienda"/> pesos por concepto de depósito en garantía.                       		
+                            	</p>
+                            	<p aling="justify">
+                            		<strong>EN CASO DE OPERACIONES DE CONTADO: </strong>el saldo del enganche, equivalente a: <span t-field="o.enganche_vivienda"/> pesos, se hara mediante un pago en la fecha <span t-field="o.fecha_pago_enganche_contado"/>.<br/>
+
+                                    <strong>EN CASO DE QUE EL ENGANCHE SE PAGUE A CREDITO: </strong> Pagare un abono de: <span t-field="o.abono_vivienda"/> ala fehca: <span t-field="o.fecha_limite_abono"/>. El saldo del enganche, lo pagare en: <span t-field="o.cantidad_mensualidad"/> mensualidades iguales de: <span t-field="o.mensaulidad_enganche"/> pesos a partir del: <span t-field="o.fecha_inicio_pago_enganche"/>.<br/>
+
+                                    <strong>EN AMBOS CASO: </strong>el saldo de la casa equivale a: <span t-field="o.total_pagar"/> pesos, se pagara en forma: <span t-if="o.pago_contado == True" >De Contdo</span><span t-if="o.pago_credito == True">a Credito</span> en la siguiente fecha: <span t-if="o.pago_contado == True" ><span t-field="o.fecha_pago_enganche_contado"/></span><span t-if="o.pago_credito == True">despues de las <span t-field="o.cantidad_mensualidad"/> Mensualidades comenzando la fecha <span t-field="o.fecha_inicio_pago_enganche"/></span><br/>
+
+                                    <table>
+                                        <tr>
+                                            <td>
+                                                Credito:<br/>
+                                                Credito INFONAVIT:<br/>
+                                                Subsidio:<br/>
+                                                Monto de la cuenta de vivienda:<br/>
+                                            </td>
+                                            <td>
+                                                <span t-field="o.cliente.esque_credito"/><br/>
+                                                <span t-field="o.numcredifona"/><br/>
+                                                <span t-field="o.subsidio"/><br/>
+                                                <span t-field="o.monto_cuenta_vivienda"/><br/>
+                                            </td>
+                                        </tr>
+                                    </table> 
+
+                                    <br/>
+
+                                    <strong>Observaciones: </strong> Amplliacion ________ se pagara en la forma antes mencionada. En caso de Avaluo _______________ se pagara el dia: _____________________. <b>Los gastos de cancelacion dentro de un periodo de ocho dias seran de $ 5,000,00 pesos. Despues de ocho dia seran de $5,000,00 pesos
+                                    Despues de firmar la Oferta de Compra: $5,000,00(si es por causa del Tramide de Credito)</b>
+                                    <br/>
+                                    Los Gastos de escrituracion y de individualizacion aproximados son de: ____________ pesos m.n. Y los pagare en:___________ pero en todo caso previo a la firma de escrituras de compra venta.
+                            	</p>
+                                <p aling="justify">
+                                    Asi mismo este apartado tendra vigencia de ocho dias apartir de la fecha mencionada.
+                                    <br/>
+                                    En Caso de no ser escriturada su casa por causa imputables a problemas de la autorizacion de su credito o por otrasos en los pagos de su encanghe o pago total de su compra el valor de la vivienda sera actualzido por el que prevalezca a el dia de la escrituracion de la casa.
+                                </p><br/>
+
+                            <table align="center">
+                                <tr>
+                                    <td style="text-align:center;">
+                                        <span>Solicitante</span><br/><br/>
+                                        <p>_____________________________</p>
+                                    </td>
+                                    <td width="3%">
+                                    </td>
+                                    <td style="text-align:center;">
+                                        <span>Presentante</span><br/><br/>
+                                        <p>_____________________________</p>
+                                    </td>
+                                    <td width="3%">
+                                    </td>
+                                    <td style="text-align:center;">
+                                        <span>Vo. Bo.</span><br/><br/>
+                                        <p>_____________________________</p>
+                                    </td>                                    
+                                </tr>
+                            </table>
+                            </div>
+                        </t>
+                    </t>
+                </t>
+        </template>
+    </data>
+</odoo>                

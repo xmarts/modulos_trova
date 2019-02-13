@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+	<odoo>
+		<data>
+			<record id="trova_evaluacion_tree" model="ir.ui.view">
+				<field name="name">trova.evaluacion.tree</field>
+				<field name="model">trova.vivienda.eva</field>
+				<field name="arch" type="xml">
+					<tree>
+						<field name="folio_vivienda"/>
+					</tree>
+                    </field>
+			</record>
+			<record id="trova_evaluacion_form" model="ir.ui.view">
+				<field name="name">trova.evaluacion.form</field>
+				<field name="model">trova.vivienda.eva</field>
+				<field name="arch" type="xml">
+                    <form string ="Formulario de Evaluacion" version="9.0">
+                    	<sheet>
+                    			<group name="group">
+                                    <field name="folio_vivienda" invisible="1"/>
+                                    <field name="cliente" requiered="1"/>
+                                        <group name="limpieza" string="Limpieza">
+                                             <field name="limpieza_gen" widget="radio" options="{'horizontal': true}" requiered='1'/>
+                                             <field name="resanes_danos" widget="radio" options="{'horizontal': true}" requiered='1' />
+                                             <field name="limpeza_patio" widget="radio" options="{'horizontal': true}" requiered='1'/>
+                                   </group>
+                                   <group name="pintura" string="Pintura">
+                                        <field name="det_pitura_int" widget="radio" options="{'horizontal': true}" requiered='1'/>
+                                        <field name="det_pitura_ext" widget="radio" options="{'horizontal': true}" requiered='1'/>
+                                        <field name="pint_int" widget="radio" options="{'horizontal': true}" requiered='1'/>
+                                        <field name="pint_ext" widget="radio" options="{'horizontal': true}" requiered='1'/>
+                                        <field name="pint_techo" widget="radio" options="{'horizontal': true}" requiered='1'/>
+                                   </group>
+                                   <group name="ventanas" string="Ventanas">
+                                        <field name="cambio_vidrio" widget="radio" options="{'horizontal': true}" requiered='1'/>
+                                        <field name="cambio_perfil" widget="radio" options="{'horizontal': true}" requiered='1'/>
+                                   </group>
+                                   <group name="puertas" string="Puertas">
+                                        <field name="Cambio_chapa" widget="radio" options="{'horizontal': true}" requiered='1'/>
+                                        <field name="rep_puerta" widget="radio" options="{'horizontal': true}" requiered='1'/>
+                                        <field name="puerta_int" widget="radio" options="{'horizontal': true}" requiered='1'/>
+                                        <field name="puerta_ext" widget="radio" options="{'horizontal': true}" requiered='1'/>
+                                        <field name="pint_puerta" widget="radio" options="{'horizontal': true}" requiered='1'/>
+                                   </group>
+                                   <group name="piso" string="Piso">
+                                        <field name="det_piso" widget="radio" options="{'horizontal': true}" requiered='1'/>
+                                        <field name="instalacion_piso" widget="radio" options="{'horizontal': true}" requiered='1'/>
+                                   </group>
+                                   <group name="banos" string="Baños">
+                                        <field name="acces_sanitario" widget="radio" options="{'horizontal': true}" requiered='1'/>
+                                        <field name="items_sanitario" widget="radio" options="{'horizontal': true}" requiered='1'/>
+                                        <field name="muebe_sanitario" widget="radio" options="{'horizontal': true}" requiered='1'/>
+                                   </group>
+                                   <group name="cocina" string="Cocina">
+                                        <field name="llave_tarja" widget="radio" options="{'horizontal': true}" requiered='1'/>
+                                        <field name="inst_tarja" widget="radio" options="{'horizontal': true}" requiered='1'/>
+                                   </group>
+                                   <group name="electricidad" string="Instalacion Electrica">
+                                        <field name="inst_electrica" widget="radio" options="{'horizontal': true}" requiered='1'/>
+                                        <field name="compl_items_elect" widget="radio" options="{'horizontal': true}" requiered='1'/>
+                                        <field name="cableado_gen" widget="radio" options="{'horizontal': true}" requiered='1'/>
+                                   </group>
+                                   <group name="hidraulico" string="Instalacion Hidraulica">
+
+                                        <field name="check_sis_hidraulico" widget="radio" options="{'horizontal': true}" requiered='1'/>
+                                        <field name="sumnin_hidraulicos" widget="radio" options="{'horizontal': true}" requiered='1'/>
+                                   </group>
+                    			</group>
+                    	</sheet>
+                    </form>
+                </field>
+            </record>
+		</data>
+	</odoo>

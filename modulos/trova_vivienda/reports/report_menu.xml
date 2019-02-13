@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <report
+            string="Datos del clientes"
+            id="report_datos_cliente"
+            model="trova.vivienda.titu"
+            report_type="qweb-pdf"
+            name="trova_vivienda.datos_clientes"
+            file="trova_vivienda.datos_clientes"
+        />
+        <report
+            string="Acta de Recepcion"
+            id="report_acta_recepcion"
+            model="trova.vivienda.titu"
+            report_type="qweb-pdf"
+            name="trova_vivienda.acta_recepcion"
+            file="trova_vivienda.acta_recepcion"
+        />
+
+        <report
+            string="Fraccionamiento"
+            id="report_fraccionamiento"
+            model="trova.vivienda.titu"
+            report_type="qweb-pdf"
+            name="trova_vivienda.fraccionamiento"
+            file="trova_vivienda.fraccionamiento"
+        />
+   
+        <report
+            string="Evaluacion Vivienda"
+            id="report_evaluacion_vivienda"
+            model="trova.vivienda.eva"
+            report_type="qweb-pdf"
+            name="trova_vivienda.evalua_vivienda"
+            file="trova_vivienda.evaluacion_vivienda"
+        />
+
+        <report
+            string="Garantias de Vivienda"
+            id="report_garantias_vivienda"
+            model="trova.vivienda.garantia"
+            report_type="qweb-pdf"
+            name="trova_vivienda.vivienda_garantia"
+            file="trova_vivienda.vivienda_garantia"
+        />
+
+        <report
+            string="Liquidacion Cliente"
+            id="report_liquidacion_cliente"
+            model="trova.vivienda.titu"
+            report_type="qweb-pdf"
+            name="trova_vivienda.liquidacion_cliente"
+            file="trova_vivienda.liquidacion_cliente"
+        />
+        <report
+            string="Contrato de Venta"
+            id="report_contrato_venta"
+            model="trova.vivienda.titu"
+            report_type="qweb-pdf"
+            name="trova_vivienda.contrato_venta"
+            file="trova_vivienda.contrato_venta"
+        />
+        <report
+            string="Solicitud de Compra"
+            id="report_solicitud_compra"
+            model="trova.vivienda.titu"
+            report_type="qweb-pdf"
+            name="trova_vivienda.solicitud_compra"
+            file="trova_vivienda.solicitud_compra"
+        />
+        <report
+            string="Avaluo Vivienda"
+            id="report_avaluo_vivienda"
+            model="trova.vivienda.titu"
+            report_type="qweb-pdf"
+            name="trova_vivienda.avaluo_vivienda1"
+            file="trova_vivienda.avaluo_vivienda"
+        />
+
+        <report
+            string="Carta Notarial"
+            id="report_carta_notarial"
+            model="trova.vivienda.titu"
+            report_type="qweb-pdf"
+            name="trova_vivienda.carta_notarial"
+            file="trova_vivienda.carta_notarial"
+        />
+
+
+        
+    </data>
+</odoo>

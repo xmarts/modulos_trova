@@ -1,0 +1,144 @@
+<openerp>
+	<data>
+		<record model="ir.ui.view" id="view_id_prueba2">
+			<field name="name">trova_employee.pagos_destajos_tree</field>
+			<field name="model">trova_employee.trova_model</field>
+			<field name="arch" type="xml">
+				<tree>
+					<field name="name"/>
+					<field name="vivienda_id"/>
+					<field name="state"/>
+				</tree>
+			</field>
+		</record>
+
+
+		<record model="ir.ui.view" id="view_id_prueba">
+			<field name="name">trova_employee.pagos_destajo_form</field>
+			<field name="model">trova_employee.trova_model</field>
+			<field eval="2" name="priority"/>
+			<field name="arch" type="xml">
+				<form string="Employee" class="o_form_project_tasks">
+					<header>
+						<button name="action_payment_open"  string="Validar" type="object" class="oe_highlight" attrs="{'invisible':['|',('state', 'in', ('open','paid','cancel'))]}"/>
+						<!--  attrs="{'invisible':['|',('state', 'in', ('open','paid'))]}"	-->
+						<button name="action_payment_paid"  string="Registrar pago" type="object" class="oe_highlight" attrs="{'invisible':['|',('state', 'in', ('draft','paid','cancel'))]}"/>
+						<button name="action_payment_cancel"  string="Cancelar" type="object" class="oe_highlight" attrs="{'invisible':['|',('state', 'in', ('paid','cancel'))]}"/>
+						<button name="action_payment_draft"  string="Cambiar a borrador" type="object" class="oe_highlight" attrs="{'invisible':['|',('state', 'in', ('draft','open','paid'))]}"/>
+						<field name="state" widget="statusbar" nolabel="1" statusbar_visible="draft,open,paid,cancel"/>
+					</header>
+					<sheet string="Payments">
+						<group>
+							<group>
+								<field name="employee_id" class="o_task_user_field"/>
+								<field name="vivienda_id" class="o_task_user_field" attrs="{'readonly':['|',('state', 'in', ('open','paid','cancel'))]}"/>
+							</group>
+							<group>
+								<field name="date_start" />
+								<field name="date_finish" />
+							</group>
+						</group>
+
+
+						<notebook>
+							<page name="mano_obra" string="Mano de obra/Habilitado vivienda">
+								<field name="option_lines1" widget="one2many_list" default_order="option">
+									<tree editable="bottom">
+										<field name = "option" />
+										<field name = "qty" />
+										<field name = "price_unit" />
+										<field name = "sub_total" />
+									</tree>
+								</field>
+								<group>
+									<group class="oe_subtotal_footer oe_right" name="project_hours">
+										<!-- <field name="total_general" widget="float_time" /> -->
+										<field name="total_g1" class="oe_subtotal_footer_separator" readonly="1"/>
+									</group>
+								</group>
+							</page>
+							<page name="trabajos_extras" string="Trabajos extras y/o amenidades">
+								<field name="option_lines2" widget="one2many_list" default_order="option">
+									<tree editable="bottom">
+										<field name = "option" />
+										<field name = "qty" />
+										<field name = "price_unit" />
+										<field name = "sub_total" />
+									</tree>
+								</field>
+								<group>
+									<group class="oe_subtotal_footer oe_right" name="project_hours">
+										<!-- <field name="total_general" widget="float_time" /> -->
+										<field name="total_g2" class="oe_subtotal_footer_separator" readonly="1"/>
+									</group>
+								</group>
+							</page>
+							<page name="conceptos_extraordinarios" string="Conceptos extraordinarios">
+								<field name="option_lines3" widget="one2many_list" default_order="option">
+									<tree editable="bottom">
+										<field name = "option" />
+										<field name = "qty" />
+										<field name = "price_unit" />
+										<field name = "sub_total" />
+									</tree>
+								</field>
+								<group>
+									<group class="oe_subtotal_footer oe_right" name="project_hours">
+										<!-- <field name="total_general" widget="float_time" /> -->
+										<field name="total_g3" class="oe_subtotal_footer_separator" readonly="1"/>
+									</group>
+								</group>
+							</page>
+							<page name="conceptos_extraordinarios2" string="Conceptos extraordinarios (Anexo)">
+								<field name="option_lines4" widget="one2many_list" default_order="option">
+									<tree editable="bottom">
+										<field name = "option" />
+										<field name = "qty" />
+										<field name = "price_unit" />
+										<field name = "sub_total" />
+									</tree>
+								</field>
+								<group>
+									<group class="oe_subtotal_footer oe_right" name="project_hours">
+										<!-- <field name="total_general" widget="float_time" /> -->
+										<field name="total_g4" class="oe_subtotal_footer_separator" readonly="1"/>
+									</group>
+								</group>
+							</page>
+						</notebook>
+					</sheet>
+
+
+					
+				</form>
+			</field>
+		</record>
+
+
+
+
+
+
+
+
+
+		<act_window id="action_list_pagos" name="Pagos por destajo" res_model="trova_employee.trova_model" view_mode="tree,form" />
+		<menuitem id="menu_main" parent="hr.menu_hr_root" name="Pagos por destajo" sequence="10" />
+		<menuitem id="menu_s1" parent="menu_main" name="Pagos por destajo" sequence="11" action="action_list_pagos" />
+
+		<record model="ir.ui.view" id="view_id_prueba3">
+			<field name="name">trova_employee.conceptos_tree</field>
+			<field name="model">trova_employee.trova_model6</field>
+			<field name="arch" type="xml">
+				<tree>
+					<field name="name"/>
+					<field name="price_unit"/>
+				</tree>
+			</field>
+		</record>
+
+		<act_window id="action_list_concepto" name="Conceptos" res_model="trova_employee.trova_model6" view_mode="tree,form" />
+		<menuitem id="menu_s2" parent="menu_main" name="Conceptos" sequence="12" action="action_list_concepto" />
+
+	</data>
+</openerp>

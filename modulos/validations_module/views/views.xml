@@ -1,0 +1,340 @@
+<odoo>
+  <data>
+
+    <!-- INICIO VALIDACIONES MODULO VENTAS -->
+
+    <record id="validation_inherit" model="ir.ui.view">
+      <field name="name">sale.order.validation</field>
+      <field name="model">sale.order</field>
+      <field name="inherit_id" ref="sale.view_order_form"/>
+      <field name="arch" type="xml">
+        <data>
+          <xpath expr="//header/button[@name='print_quotation'][1]" position="after">
+            <button groups="validations_module.group_trova" states="draft,sent" name="action_validate" string="Validar" type="object" class="oe_highlight"/>
+          </xpath>
+          </data>
+      </field>
+    </record>
+
+    <record id="sale_order_confirmbtn" model="ir.ui.view">
+        <field name="name">sale.order.confirm</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//button[@name='action_confirm'][1]" position="attributes">
+                <attribute name="attrs">{'invisible':[('state','!=', ('to_validate'))]}</attribute>
+            </xpath>
+            <xpath expr="//button[@name='action_confirm'][2]" position="attributes">
+                <attribute name="attrs">{'invisible':[('state','!=', (''))]}</attribute>
+            </xpath>
+            <xpath expr="//button[@name='action_cancel']" position="attributes">
+                <attribute name="states">draft,sent,to_validate,sale,done</attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="sale_form_view" model="ir.ui.view">
+        <field name="name">sale.order.form.inherit</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+          <field name="state" position="replace">
+            <field name="state" widget="statusbar" statusbar_visible="draft,sent,to_validate,sale,done,cancel" statusbar_colors='{"invoice_except":"red","waiting_date":"blue"}'/>
+          </field>
+        </field>
+    </record>
+
+    <!-- FIN VALIDACIONES MODULO VENTAS -->
+
+    <!-- INICIO VALIDACIONES MODULO VENTAS FACTURAS -->
+    
+    <record id="validation_inherit_facture" model="ir.ui.view">
+      <field name="name">sales.commission.validation</field>
+      <field name="model">sales.commission</field>
+      <field name="inherit_id" ref="sales_commission_calculation.sales_commission_worksheet_form_view"/>
+      <field name="arch" type="xml">
+        <data>
+          <xpath expr="//header/button[@name='action_create_invoice']" position="after">
+            <button groups="validations_module.group_trova" name="action_validate2" states="draft" string="Validar" type="object" class="oe_highlight"/>
+          </xpath>
+          </data>
+      </field>
+    </record>
+
+    <record id="sale_form_view" model="ir.ui.view">
+        <field name="name">sales.commission.form.inherit</field>
+        <field name="model">sales.commission</field>
+        <field name="inherit_id" ref="sales_commission_calculation.sales_commission_worksheet_form_view"/>
+        <field name="arch" type="xml">
+          <field name="state" position="replace">
+            <field name="state" widget="statusbar" statusbar_visible="draft,to_validate,invoice,cancel" statusbar_colors='{"invoice_except":"red","waiting_date":"blue"}'/>
+          </field>
+        </field>
+    </record>
+
+    <record id="sales_commission_btns" model="ir.ui.view">
+        <field name="name">sales.commission.btns</field>
+        <field name="model">sales.commission</field>
+        <field name="inherit_id" ref="sales_commission_calculation.sales_commission_worksheet_form_view" />
+        <field name="arch" type="xml">
+            <xpath expr="//button[@name='action_cancel']" position="attributes">
+                <attribute name="states">draft,to_validate,invoice</attribute>
+            </xpath>
+            <xpath expr="//button[@name='action_cancel']" position="attributes">
+                <attribute name="string">Cancelar</attribute>
+            </xpath>
+            <xpath expr="//button[@name='action_draft']" position="attributes">
+                <attribute name="string">Convertir a Presupuesto</attribute>
+            </xpath>
+            <xpath expr="//button[@name='action_create_invoice']" position="attributes">
+                <attribute name="string">Crear Factura</attribute>
+            </xpath>
+            <xpath expr="//button[@name='action_create_invoice']" position="attributes">
+                <attribute name="states">to_validate</attribute>
+            </xpath>
+        </field>
+    </record>
+    
+
+    <!-- FIN VALIDACIONES MODULO VENTAS FACTURAS -->
+
+    <!-- INICIO VALIDACIONES TITULACION -->
+
+    <record id="validation_inherit_titulacion" model="ir.ui.view">
+      <field name="name">trova.vivienda.titulacion</field>
+      <field name="model">trova.vivienda.titu</field>
+      <field name="inherit_id" ref="trova_vivienda.trova_viv_titulacion_modelo_form"/>
+      <field name="arch" type="xml">
+        <data>
+          <xpath expr="//header/button[@name='action_titu_invoice_create']" position="after">
+            <button name="action_validate" attrs="{'invisible':[('etapas','!=','Cancelada')]}" string="Convertir a Disponible" type="object" class="oe_highlight"/>
+          </xpath>
+          <xpath expr="//header" position="inside">
+            <button name="action_validate1" attrs="{'invisible':[('etapas','!=','Disponible')]}" string="Invadida" type="object" class=""/>
+          </xpath>
+          <xpath expr="//header/button[@name='action_validate1']" position="before">
+            <button name="action_validate2" attrs="{'invisible':[('etapas','!=','Disponible')]}" string="Por avaluo" type="object" class="oe_highlight"/>
+          </xpath>
+          <xpath expr="//header/button[@name='action_validate2']" position="after">
+            <button name="action_validate3" attrs="{'invisible':[('etapas','!=','Poravaluo')]}" string="Por firmar" type="object" class="oe_highlight"/>
+          </xpath>
+          <xpath expr="//header/button[@name='action_validate3']" position="after">
+            <button name="action_validate4" attrs="{'invisible':[('etapas','!=','Porfirma')]}" etapas="Poravaluo" string="Firmada" type="object" class="oe_highlight"/>
+          </xpath>
+          <xpath expr="//header" position="inside">
+            <button name="action_validateCancell" attrs="{'invisible':[('etapas','=','Cancelada')]}" string="Cancelar" type="object" class=""/>
+          </xpath>
+          </data>
+      </field>
+    </record>
+
+    <record id="trova_vivienda_status" model="ir.ui.view">
+        <field name="name">trova.vivienda.statusbar</field>
+        <field name="model">trova.vivienda.titu</field>
+        <field name="inherit_id" ref="trova_vivienda.trova_viv_titulacion_modelo_form"/>
+        <field name="arch" type="xml">
+          <field name="etapas" position="replace">
+            <field name="etapas" widget="statusbar" statusbar_visible="Disponible,Invadida,Poravaluo,Porfirma,Firmada,Cancelada" statusbar_colors='{"invoice_except":"red","waiting_date":"blue"}'/>
+          </field>
+        </field>
+    </record>
+
+    <record id="trova_vivienda_btntit" model="ir.ui.view">
+        <field name="name">trova.vivienda.btntit</field>
+        <field name="model">trova.vivienda.titu</field>
+        <field name="inherit_id" ref="trova_vivienda.trova_viv_titulacion_modelo_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//button[@name='action_titu_invoice_create']" position="attributes">
+                <attribute name="attrs">{'invisible':[('etapas','!=', 'Firmada')]}</attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- FIN VALIDACIONES TITULACION -->
+
+    <!-- INICIO VALIDACIONES PRECIO VIVIENDAS -->
+
+    <record id="validation_inherit_precio" model="ir.ui.view">
+      <field name="name">trova.vivienda.precio</field>
+      <field name="model">trova.vivienda</field>
+      <field name="inherit_id" ref="trova_vivienda.trova_vivienda_modelo_form"/>
+      <field name="arch" type="xml">
+        <data>
+          <xpath expr="//header" position="inside">
+            <button name="action_validateBor" attrs="{'invisible':[('etapas','!=','Cancelada')]}" string="Convertir a Borrador" type="object" class="oe_highlight"/>
+          </xpath>
+          <xpath expr="//header" position="inside">
+            <button name="action_validate" attrs="{'invisible':[('etapas','!=','Borrador')]}" string="Convertir a Disponible" type="object" class="oe_highlight"/>
+          </xpath>
+          <xpath expr="//header" position="inside">
+            <button name="action_validate" attrs="{'invisible':[('etapas','!=','Invadida')]}" string="Convertir a Disponible" type="object" class="oe_highlight"/>
+          </xpath>
+          <xpath expr="//header" position="inside">
+            <button name="action_validate1" attrs="{'invisible':[('etapas','!=','Disponible')]}" string="Invadida" type="object" class=""/>
+          </xpath>
+          <xpath expr="//header" position="inside">
+            <button name="action_validateBor" attrs="{'invisible':[('etapas','!=','Invadida')]}" string="Convertir a Borrador" type="object" class="oe_highlight"/>
+          </xpath>
+          <xpath expr="//header/button[@name='action_validate1']" position="before">
+            <button name="action_validate2" attrs="{'invisible':[('etapas','!=','Disponible')]}" string="Por avaluo" type="object" class="oe_highlight"/>
+          </xpath>
+          <xpath expr="//header/button[@name='action_validate1']" position="before">
+            <button name="action_validate2" attrs="{'invisible':[('etapas','!=','Borrador')]}" string="Por avaluo" type="object" class="oe_highlight"/>
+          </xpath>
+          <xpath expr="//header/button[@name='action_validate2']" position="after">
+            <button name="action_validateBor" attrs="{'invisible':[('etapas','!=','Disponible')]}" string="Borrador" type="object" class="oe_highlight"/>
+          </xpath>
+          <xpath expr="//header/button[@name='action_validate2']" position="after">
+            <button name="action_validate3" attrs="{'invisible':[('etapas','!=','Poravaluo')]}" string="Por firmar" type="object" class="oe_highlight"/>
+          </xpath>
+          <xpath expr="//header/button[@name='action_validate3']" position="after">
+            <button name="action_validate4" attrs="{'invisible':[('etapas','!=','Porfirma')]}" etapas="Poravaluo" string="Firmada" type="object" class="oe_highlight"/>
+          </xpath>
+          <xpath expr="//header" position="inside">
+            <button name="action_validateCancell" attrs="{'invisible':[('etapas','=','Cancelada')]}" string="Cancelar" type="object" class=""/>
+          </xpath>
+          <xpath expr="//field[@name='precioventa']" position="attributes">
+                <attribute name="attrs">
+                  {'readonly':[('etapas','!=', 'Borrador')], 'required':[('etapas','=','Borrador')]}
+                </attribute>
+            </xpath>
+          </data>
+      </field>
+    </record>
+
+    <record id="trova_vivienda_baretap" model="ir.ui.view">
+        <field name="name">trova.vivienda.baretap</field>
+        <field name="model">trova.vivienda</field>
+        <field name="inherit_id" ref="trova_vivienda.trova_vivienda_modelo_form"/>
+        <field name="arch" type="xml">
+          <field name="etapas" position="replace">
+            <field name="etapas" widget="statusbar" statusbar_visible="Disponible,Invadida,Borrador,Poravaluo,Porfirma,Firmada,Cancelada" statusbar_colors='{"invoice_except":"red","waiting_date":"blue"}'/>
+          </field>
+        </field>
+    </record>
+
+    <!-- FIN VALIDACIONES PRECIO VIVIENDAS -->
+
+    <!-- INICIO VALIDACIONES PAGO TRABAJADORES -->
+
+    <record id="trova_employe_trovebtns" model="ir.ui.view">
+        <field name="name">trova.employe.trovebtns</field>
+        <field name="model">trova_employee.trova_model</field>
+        <field name="inherit_id" ref="trova_employee.view_id_prueba" />
+        <field name="arch" type="xml">
+          <xpath expr="//header" position="inside">
+            <button name="action_aprove" attrs="{'invisible':[('state','!=','open')]}"  string="Aprovar" type="object" class="oe_highlight"/>
+          </xpath>
+            <xpath expr="//button[@name='action_payment_open']" position="attributes">
+                <attribute name="groups">validations_module.group_trova</attribute>
+            </xpath>
+            <xpath expr="//button[@name='action_payment_open']" position="attributes">
+                <attribute name="states">draft</attribute>
+            </xpath>
+            <xpath expr="//button[@name='action_payment_paid']" position="attributes">
+                <attribute name="states">aprove</attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="trova_employe_trove" model="ir.ui.view">
+        <field name="name">trova.employe.trove</field>
+        <field name="model">trova_employee.trova_model</field>
+        <field name="inherit_id" ref="trova_employee.view_id_prueba"/>
+        <field name="arch" type="xml">
+          <field name="state" position="replace">
+            <field name="state" widget="statusbar" statusbar_visible="draft,open,aprove,paid,cancel" statusbar_colors='{"invoice_except":"red","waiting_date":"blue"}'/>
+          </field>
+        </field>
+    </record>
+    
+    <!-- FIN VALIDACIONES PAGO TRABAJADORES -->
+
+    <!-- INICIO REMOVIENDO CAMPO MONTO A PAGAR -> TITULACION -->
+    
+    <record id="remov_camp_titulacion" model="ir.ui.view">
+      <field name="name">trova.vivienda.remov.camp</field>
+      <field name="model">trova.vivienda.titu</field>
+      <field name="inherit_id" ref="trova_vivienda.trova_viv_titulacion_modelo_form"/>
+      <field name="arch" type="xml">
+        <xpath expr="//field[@name='monto_pago']" position="attributes">
+          <attribute name="invisible">1</attribute>
+        </xpath>
+      </field>
+    </record>
+    
+    <!-- FIN REMOVIENDO CAMPO MONTO A PAGAR -> TITULACION -->
+
+    <!-- PRUEBA DE VALOR -->
+
+    <!--<record id="prueb_camp" model="ir.ui.view">
+      <field name="name">viviend.camp</field>
+      <field name="model">trova.vivienda.titu</field>
+      <field name="inherit_id" ref="trova_vivienda.trova_viv_titulacion_modelo_form"/>
+      <field name="arch" type="xml">
+        <xpath expr="//header" position="inside">
+          <button name="pruebaVal" string="Agregar cuenta" type="object" class="oe_highlight"></button>
+        </xpath>
+      </field>
+    </record>-->
+
+    <!-- INICIO AGREGANDO CAMPO DE CUENTAS -->
+
+    <record id="add_camp_cuenta" model="ir.ui.view">
+      <field name="name">res.partner.add.camp.cuenta</field>
+      <field name="model">res.partner</field>
+      <field name="inherit_id" ref="account.partner_view_buttons"/>
+      <field name="arch" type="xml">
+        <data>
+          <xpath expr="//field[@name='currency_id']" position="before">
+            <field name="cuenta_select" domain="[('partner_id','=',id)]"/>
+          </xpath>
+          </data>
+      </field>
+    </record>
+
+    <!-- FIN AGREGANDO CAMPO DE CUENTAS -->
+
+    <!-- REQUIRIENDO EL CAMPO PROPIETARIO DE VIVIENDA -->
+
+    <record id="required_camp" model="ir.ui.view">
+      <field name="name">camp.required</field>
+      <field name="model">trova.vivienda</field>
+      <field name="inherit_id" ref="trova_vivienda.trova_vivienda_modelo_form"/>
+      <field name="arch" type="xml">
+        <xpath expr="//field[@name='prop_vivienda']" position="attributes">
+          <attribute name="required">1</attribute>
+        </xpath>
+      </field>
+    </record>
+
+    <!-- AGREGANDO EL ESTADO A LA LISTA VIVIENDA -->
+
+    <record id="add_etapa_list" model="ir.ui.view">
+      <field name="name">camp.etapa.list</field>
+      <field name="model">trova.vivienda</field>
+      <field name="inherit_id" ref="trova_vivienda.trova_vivienda_modelo_tree"/>
+      <field name="arch" type="xml">
+        <data>
+          <xpath expr="//field[@name='subasta']" position="after">
+            <field name="etapas" string="Estado"/>
+          </xpath>
+          </data>
+      </field>
+    </record>
+
+    <record id="string_camp_titulacion" model="ir.ui.view">
+      <field name="name">camp.string.titulacion</field>
+      <field name="model">trova.vivienda.titu</field>
+      <field name="inherit_id" ref="trova_vivienda.trova_viv_titulacion_modelo_tree"/>
+      <field name="arch" type="xml">
+        <xpath expr="//field[@name='etapas']" position="attributes">
+          <attribute name="string">Estado</attribute>
+        </xpath>
+      </field>
+    </record>
+
+
+
+  </data>
+</odoo>

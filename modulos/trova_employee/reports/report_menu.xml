@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <report
+            string="Pago por destajo 1"
+            id="action_report_pagos_destajo"
+            model="trova_employee.trova_model"
+            report_type="qweb-pdf"
+            name="trova_employee.report_pagos_destajo"
+            file="trova_employee.report_pagos_destajo"
+        />
+
+        <report
+            string="Pago por destajo 2"
+            id="action_report_pagos_destajo2"
+            model="trova_employee.trova_model"
+            report_type="qweb-pdf"
+            name="trova_employee.report_pagos_destajo2"
+            file="trova_employee.report_pagos_destajo2"
+        />
+
+<!--- string="Cotizacion Parcialidad"               =Nombre del reporte  -->
+<!--- id="action_report_cotizacion_parcialidad"     =Cualquier ID  -->
+<!--- model="stock.picking"                         =Nombre del modelo del que se hereda  -->
+<!--- name="bibo-master.report_cotizacion_parcialidad  =Modulo.Nombrereporte  -->
+<!--- file="bibo-master.report_cotizacion_parcialidad  =Modulo.Idtemplete  -->
+    </data>
+</odoo>

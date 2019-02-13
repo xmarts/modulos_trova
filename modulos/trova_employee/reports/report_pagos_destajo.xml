@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="report_pagos_destajo">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="o">
+                    <t t-call="web.external_layout">
+                       <div class="page">
+
+                                <table class="table table-condensed">
+                                    <tr style="text-align:center;">
+                                            <td colspan="4"><strong>SANT  ROD  INMOBILIARIA SA  DE  CV</strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Habilitador:</strong> <span t-field="o.employee_id"/></td>
+                                        <td><strong>Semana del:</strong> <span t-field="o.date_start"/> Al <span t-field="o.date_finish"/></td>
+                                        
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Desarrollo:</strong> <span t-field="o.vivienda_id.desarrollo"/></td>
+                                        <td><strong>Ubicacion:</strong> <span t-field="o.vivienda_id.address"/></td>
+                                    </tr>
+                                </table>
+                                <br/>
+
+
+                                <table class="table table-condensed">
+                                    
+                                        <tr style="text-align:center; background-color:#9CC2E5;">
+                                            <td colspan="4"><strong>MANO DE OBRA/HABILITADO VIVIENDA</strong></td>
+                                        </tr>
+
+                                        <tr>
+                                            <th><strong>CONCEPTO</strong></th>
+                                            <th><strong>CANTIDAD</strong></th>
+                                            <th><strong>P.U.</strong></th>
+                                            <th class="text-right"><strong>TOTAL</strong></th>
+                                        </tr>
+                                    
+                                        <tr t-foreach="o.option_lines1" t-as="l">
+                                            <td><span t-field="l.option"/></td>
+                                            <td><span t-field="l.qty"/></td>
+                                            <td>
+                                                <t t-set="pu1" t-value="l.price_unit"/>
+                                                <span t-esc="'{0:.2f}'.format(pu1)"/>
+                                            </td>
+                                            <td class="text-right">
+                                                <t t-set="su1" t-value="l.sub_total"/>
+                                                <span t-esc="'{0:.2f}'.format(su1)"/>
+                                            </td>
+                                        </tr>
+                                        <tr style="text-align:center; background-color:#FFE598;">
+                                            <td colspan="4"><strong>TRABAJOS EXTRAS Y/O AMENIDADES</strong></td>
+                                        </tr>
+                                        <tr t-foreach="o.option_lines2" t-as="l">
+                                            <td><span t-field="l.option"/></td>
+                                            <td><span t-field="l.qty"/></td>
+                                            <td>
+                                                <t t-set="pu2" t-value="l.price_unit"/>
+                                                <span t-esc="'{0:.2f}'.format(pu2)"/>
+                                            </td>
+                                            <td class="text-right">
+                                                <t t-set="su2" t-value="l.sub_total"/>
+                                                <span t-esc="'{0:.2f}'.format(su2)"/>
+                                            </td>
+                                        </tr>
+                                    
+                                </table>
+
+                                    <!---     SE AGREGO ESTO    -->
+                                <div class="row" name="total">
+                                    <div class="col-xs-4 pull-right">
+                                        <table class="table table-condensed">
+                                            
+
+                                            <!---     SE AGREGO ESTO  TOTAL  -->
+                                            <tr class="border-black">
+                                                <td colspan="6">
+                                                    <strong>Total</strong>
+                                                </td>
+                                                <td class="text-right">
+                                                    <t t-set="tot" t-value="o.total_g1+o.total_g2"/>
+                                                    <p>$ <span t-esc="'{0:.2f}'.format(tot)"/></p>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+                                <br/>
+                                <p>RECIBI  DE CONFORMIDAD  LA CANTIDAD  DE  $ <span t-esc="'{0:.2f}'.format(tot)"/>  POR  CONCEPTO  DE <br/>
+                                PAGO DESTAJO  DEL  PERIODO  ARRIBA  SEÑALADO </p>
+                                <br/>
+                                <table class="table">
+                                    <tr>
+                                        <td class="col-xs-4" style="border-top: 0px solid white;">
+                                            
+                                        </td>
+                                        <td class="col-xs-4" style="border-bottom: 2px solid;border-top: 0px solid white;text-align:center;">
+                                            <p><strong>ATENTAMENTE</strong></p>
+                                            <br/>
+                                        </td>
+                                        <td class="col-xs-4" style="border-top: 0px solid white;">
+                                            
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="col-xs-4" style="border-top: 0px solid white;">
+                                            
+                                        </td>
+                                        <td class="col-xs-4" style="border-top: 0px solid white;text-align:center;">
+                                            <p>JOSE JUAN CASTAÑEDA CASTAÑEDA<br/>
+                                            CURP: CACJ760909HJCSSN00</p>
+                                        </td>
+                                        <td class="col-xs-4" style="border-top: 0px solid white;">
+                                            
+                                        </td>
+                                    </tr>
+                                </table>
+                                
+                       </div> <!---     DIV PAGE  -->
+                    </t>
+                </t>    <!---     FOREACH DOCS  -->
+            </t>
+        </template>
+    </data>
+</odoo>

@@ -1,0 +1,24 @@
+<odoo>
+    <data>
+        <record model='ir.ui.view' id="xmarts_comision_vendedor">
+          <field name="name">trova_vivienda_titu_comision</field>
+          <field name="model">trova.vivienda.titu</field>
+          <field name="inherit_id" ref="trova_vivienda.trova_viv_titulacion_modelo_form" />
+          <field name="arch" type="xml">
+              <xpath expr="//field[@name='monto_pago']" position="after">
+                   <field name="comision_vendedor"/>
+                                           
+               </xpath>
+                <xpath expr="//field[@name='medio_enterado']" position="after">
+                   <field name="invoice_state"/>
+                   <field name="invoice_id"/>
+                                           
+               </xpath>
+               <xpath expr="//button[@name='action_titu_invoice_create']" position="replace"> 
+                <button confirm="Estas seguro de crear la factura de esta titulacion?" attrs="{'invisible':['|',('invoice_state','!=','cancel'),('etapas','!=','Firmada')]}" name="action_titu_invoice_create" string="Factura Titulacion" type="object" class="oe_highlight"/>
+                <button confirm="Estas seguro de crear la factura de esta titulacion?" attrs="{'invisible':['|',('invoice_state','!=',False),('etapas','!=','Firmada')]}" name="action_titu_invoice_create" string="Factura Titulacion" type="object" class="oe_highlight"/>
+                </xpath>
+          </field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="datos_clientes">
+                <t t-call="web.html_container">
+                    <t t-foreach="docs" t-as="o">
+                        <t t-call="web.external_layout">
+                        	<div class="page">
+                        		<br/><br/>
+							<table style="margin: auto; "  width="100%">
+									<tr>
+										<td colspan="7" align="center">
+											<b >DATOS GENERALES DEL CLIENTE</b><br/>
+										</td>
+									</tr>
+									<tr>
+										<td  colspan="7" >
+											<b>NOMBRE COMPLETO: </b><span t-field="o.cliente.name"/>
+										</td>
+									</tr>
+									<tr>
+										<td colspan="2">
+											<b>CURP: </b><span t-field="o.cliente.curp"/>
+										</td>
+										<td colspan="2">
+											<b>RFC: </b><span t-field="o.cliente.vat"/>
+										</td>
+										<td colspan="3">
+											<b>NSS: </b><span t-field="o.cliente.nss"/>
+										</td>																				
+									</tr>
+									<tr>
+										<td colspan="2">
+											<b>EDAD: </b><span t-field="o.cliente.edad"/> 
+										</td>
+										<td colspan="2">
+											<b>ESTADO CIVIL: </b><span t-field="o.cliente.estado_civil"/>
+										</td>
+										<td colspan="3">
+											<b>REGIMEN: </b><span t-field="o.cliente.regimen"/>
+										</td>										
+									</tr>
+									<tr>
+										<td  colspan="3" >
+											<b>CORREO ELECTRONICO:</b><span t-field="o.cliente.email"/>
+										</td>
+									</tr>
+									<tr>
+										<td  colspan="7" >
+											<b>FECHA DE NACIMIENTO: </b><span t-field="o.cliente.fechanac"/>
+										</td>
+									</tr>
+									<tr>
+										<td colspan="4" >
+											<b>ESQUEMA DE CREDITO: </b><span t-field="o.cliente.esque_credito"/>
+										</td>
+										<td colspan="3">
+											<b>TIPO DE CREDITO: </b><span t-field="o.cliente.tipocredito"/><br/>
+										</td>
+									</tr>
+									<tr>
+										<td  colspan="7" align="center">
+											<b>EN CASO DE CREDITO CONYUGAL.</b>
+										</td>
+									</tr>
+									<tr>
+										<td  colspan="4" >
+											<b>NOMBRE DEL CONYUGE: </b><span t-field="o.cliente.name_cony"/>
+										</td>
+										<td colspan="3">
+											<b>NSS: </b><span t-field="o.cliente.nss_cony"/>
+										</td>
+									</tr>
+									<tr>
+										<td  colspan="7" >
+											<b>NOMBRE DE LA EMPRESA:</b><span t-field="o.cliente.empr_cony"/>
+										</td>
+									</tr>
+									<tr>
+										<td colspan="3" >
+											<b>ANTIGUEDAD: </b><span t-field="o.cliente.antigue_cony"/> 
+										</td>
+										<td colspan="4" >
+											<b>AREA O DEPARTAMENTO: </b><span t-field="o.cliente.dept_cony"/>
+										</td>
+									</tr>
+									<tr>
+										<td colspan="3">
+											<b>CALLE: </b><span t-field="o.cliente.calle_cony"/>
+										</td>
+										<td colspan="2" >
+											<b>No. Ext: </b><span t-field="o.cliente.noext_cony"/> 
+										</td>
+										<td colspan="2" >
+											<b>No. Int: </b><span t-field="o.cliente.noint_cony"/>
+										</td>										
+									</tr>
+									<tr>
+										<td  colspan="7" >
+											<b>TEL. CASA: </b><span t-field="o.cliente.tel_casa_cony"/><br/><b>CEL: </b><span t-field="o.cliente.cel_cony"/><br/><b>TEL TRABAJO: </b><span t-field="o.cliente.tel_trabajo_cony"/><br/>
+										</td> 
+									</tr>
+									<tr>
+										<td  colspan="7" align="center">
+											<b>DOMICILIO ACTUAL DEL CLIENTE</b>
+										</td>
+									</tr>
+									<tr>
+										<td  colspan="7" >
+											<b align="justify">CALLE: </b><span t-field="o.cliente.street_name"/><br/><b>No. Ext: </b><span t-field="o.cliente.street_number"/><br/><b> No. Int: </b><span t-field="o.cliente.street_number2"/>
+										</td>
+									</tr>
+									<tr>
+										<td  colspan="7" >
+											<b>COLONIA: </b><span t-field="o.cliente.l10n_mx_edi_colony"/>
+										</td>
+									</tr>
+									<tr>
+										<td colspan="3" >
+											<b>MUNICIPIO: </b><span t-field="o.cliente.city"/> 
+										</td>
+										<td colspan="2" >
+											<b>ESTADO: </b><span t-field="o.cliente.state_id.name"/>
+										</td>
+										<td colspan="2">
+											<b>C.P: </b><span t-field="o.cliente.zip"/>
+										</td>																				
+									</tr>
+									<tr>
+										<td  colspan="7" >
+											<b>TELEFONO: </b><span t-field="o.cliente.phone"/><br/><b> CEL:</b><span t-field="o.cliente.mobile"/><br/>
+										</td>
+									</tr>
+									<tr>
+										<td  colspan="7" align="center">
+											<b >UBICACION INMUEBLE A ADQUIRIR</b>
+										</td>
+									</tr>
+									<tr>
+										<td  colspan="7" >
+											<b>CALLE: </b><span t-field="o.folio.calle"/><br/><b>No. Ext: </b><span t-field="o.folio.noext"/><br/><b> Mza y Lote: </b><span t-field="o.folio.mz_lote"/>
+										</td>
+									</tr>
+									<tr>
+										<td  colspan="7" >
+											<b>ENTRE: </b><span t-field="o.folio.entre"/><br/><b> COLONIA: </b><span t-field="o.folio.calle2"/>
+										</td>
+									</tr>
+									<tr>
+										<td  colspan="7" >
+											<b>MUNICIPIO: </b><span t-field="o.folio.municipio"/><br/><b>ESTADO: </b><span t-field="o.folio.estado"/><br/><b>C.P: </b><span t-field="o.folio.cp"/>
+										</td>
+									</tr>
+									<tr>
+										<td  colspan="7" align="center" >
+											<b>DATOS DEL TRABAJO DEL CLIENTE</b>
+										</td>
+									</tr>
+									<tr>
+										<td  colspan="7" >
+											<b>NOMBRE DE LA EMPRESA:</b><span t-field="o.cliente.empresa"/>
+										</td>
+									</tr>
+									<tr>
+										<td  colspan="7" >
+											<b>CALLE: </b><span t-field="o.cliente.calle"/><br/><b>No. Ext: </b><span t-field="o.cliente.numext"/><br/><b>No. Int:</b><span t-field="o.cliente.numint"/>
+										</td>
+									</tr>
+									<tr>
+										<td  colspan="7" >
+											<b>ENTRE: </b><span t-field="o.cliente.entre"/><br/><b>COLONIA: </b><span t-field="o.cliente.colonia"/>
+										</td>
+									</tr>
+									<tr>
+										<td  colspan="7" >
+											<b>MUNICIPIO: </b><span t-field="o.cliente.municipio"/><br/><b> ESTADO: </b><span t-field="o.cliente.estado"/><br/><b>C.P: </b><span t-field="o.cliente.cp"/>
+										</td>
+									</tr>
+									<tr>
+										<td  colspan="3" >
+											<b>NRP: </b><span t-field="o.cliente.nrp"/>
+										</td>
+										<td  colspan="4" >
+										<b> AREA O DEPARTAMENTO: </b><span t-field="o.cliente.areaodep"/>
+										</td>
+									</tr>
+									<tr>
+										<td  colspan="4" >
+											<b>TELFONO: </b><span t-field="o.cliente.tel"/>
+										</td>
+										<td  colspan="3" >
+										<b>EXT: </b><span t-field="o.cliente.extension"/>
+										</td>
+									</tr>
+									<tr>
+										<td  colspan="7" align="center">
+											<b >REFERENCIAS PERSONALES</b>
+										</td>
+									</tr>
+									<tr>
+										<td  colspan="7" >
+											<b>NOMBRE COMPLETO: </b><span t-field="o.cliente.nombcompleto1"/><br/><b>TEL (LADA): </b><span t-field="o.cliente.tel_lada1"/>
+										</td>
+									</tr>
+									<tr>
+										<td  colspan="7" >
+											<b>NOMBRE COMPLETO: </b><span t-field="o.cliente.nombcompleto2"/><br/><b> TEL (LADA): </b><span t-field="o.cliente.tel_lada2"/><br/>
+										</td>
+									</tr>
+									<tr>
+										<td  colspan="7" align="center" >
+											<b >BENEFICIARIOS</b>
+										</td>
+									</tr>
+									<tr >
+										<td align="center" colspan="3">
+											<b>NOMBRE</b>
+										</td>
+										<td align="center" colspan="2">
+											<b>PORCENTAJE</b>
+										</td>
+										<td align="center" colspan="2">
+											<b>PARENTESCO</b>
+										</td>
+									</tr>
+									<tr >
+										<td align="center" colspan="3">
+											<span t-field="o.cliente.name_benef1"/>
+										</td>
+										<td align="center" colspan="2">
+											<span t-field="o.cliente.porcent_benf1"/>
+										</td>
+										<td align="center" colspan="2">
+											<span t-field="o.cliente.prentesco1"/>
+										</td>
+									</tr>
+									<tr >
+										<td align="center" colspan="3">
+											<span t-field="o.cliente.name_benef2"/>
+										</td>
+										<td align="center" colspan="2">
+											<span t-field="o.cliente.porcent_benf2"/>
+										</td>
+										<td align="center" colspan="2">
+											<span t-field="o.cliente.prentesco2"/>
+										</td>
+									</tr>
+									<tr>
+										<td  colspan="7" >
+											<b>ASESOR DE VENTAS: </b><span t-field="o.asesor"/>
+										</td>
+									</tr>
+									<tr>
+										<td  colspan="7" >
+											<b>OBSERVACIONES: </b><span t-field="o.observaciones"/>
+										</td>
+									</tr>
+							</table>
+						</div>
+						</t>
+					</t>
+				</t>
+		</template>
+	</data>
+</odoo>

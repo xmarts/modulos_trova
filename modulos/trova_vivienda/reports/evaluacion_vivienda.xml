@@ -1,0 +1,480 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="evalua_vivienda">
+                <t t-call="web.html_container">
+                    <t t-foreach="docs" t-as="o">
+                        <t t-call="web.external_layout">
+                            <div class="page">
+                                <h3 style="text-align: center;">Evaluacion</h3>
+                                <table width="100%" cellspacing="0" cellpadding="7" style="align:center;">
+                                    <tbody style="align:center;">
+                                        <tr>
+                                            <td style="border: 1px solid #00000a; padding: 0cm 0.19cm 0cm 0.2cm;" colspan="5" valign="top" width="573">
+                                                <p align="center">CHECK LIST</p>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="border: 1px solid #00000a; padding: 0cm 0.19cm 0cm 0.2cm;" width="102">
+                                                <p align="center">DIRECCION/ID</p>
+                                            </td>
+                                            <td style="border: 1px solid #00000a; padding: 0cm 0.19cm 0cm 0.2cm;" colspan="4" valign="top" width="456">
+                                                <p align="center"><span t-field="o.folio_vivienda"/> Vivienda <span t-field="o.folio_vivienda"/></p>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="border: 1px solid #00000a; padding: 0cm 0.19cm 0cm 0.2cm;" width="102">
+                                                <p align="center" ></p>
+                                            </td>
+                                            <td style="border: 1px solid #00000a; padding: 0cm 0.19cm 0cm 0.2cm;" valign="top" width="110">
+                                                <p align="center">Concepto</p>
+                                            </td>
+                                            <td style="border: 1px solid #00000a; padding: 0cm 0.19cm 0cm 0.2cm;" valign="top" width="102">
+                                                <p align="center">Excelente</p>
+                                            </td>
+                                            <td style="border: 1px solid #00000a; padding: 0cm 0.19cm 0cm 0.2cm;" valign="top" width="102">
+                                                <p align="center">Bueno</p>
+                                            </td>
+                                            <td style="border: 1px solid #00000a; padding: 0cm 0.19cm 0cm 0.2cm;" valign="top" width="101">
+                                                <p align="center">Malo</p>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="border: 1px solid #00000a; padding: 0cm 0.19cm 0cm 0.2cm;" rowspan="3" width="102">
+                                                <p style="margin-bottom: 0cm;" align="center"></p>
+                                                <p style="margin-bottom: 0cm;" align="center"></p>
+                                                <p style="margin-bottom: 0cm;" align="center"></p>
+                                                <p align="center">Limpieza</p>
+                                            </td>
+                                            <td style="border: 1px solid #00000a; padding: 0cm 0.19cm 0cm 0.2cm;" valign="top" width="110">
+                                                <p align="center"><span style="font-size: small;">Limpieza general de interiores</span></p>
+                                            </td>
+                                            <td style="border: 1px solid #00000a; padding: 0cm 0.19cm 0cm 0.2cm;" valign="top" width="102">
+                                                <p align="center" t-if="o.limpieza_gen == 'e'"><span t-field="o.limpieza_gen"/></p>
+                                            </td>
+                                            <td style="border: 1px solid #00000a; padding: 0cm 0.19cm 0cm 0.2cm;" valign="top" width="102">
+                                                <p align="center" t-if="o.limpieza_gen == 'b'"><span t-field="o.limpieza_gen"/></p>
+                                            </td>
+                                            <td style="border: 1px solid #00000a; padding: 0cm 0.19cm 0cm 0.2cm;" valign="top" width="101">
+                                                <p align="center" t-if="o.limpieza_gen == 'm'"><span t-field="o.limpieza_gen"/></p>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="border: 1px solid #00000a; padding: 0cm 0.19cm 0cm 0.2cm;" valign="top" width="110">
+                                                <p align="center"><span style="font-size: small;">Resanes de Albañileria daños menores</span></p>
+                                            </td>
+                                            <td style="border: 1px solid #00000a; padding: 0cm 0.19cm 0cm 0.2cm;" valign="top" width="102">
+                                                <p align="center" t-if="o.resanes_danos == 'e'"><span t-field="o.resanes_danos"/></p>
+                                            </td>
+                                            <td style="border: 1px solid #00000a; padding: 0cm 0.19cm 0cm 0.2cm;" valign="top" width="102">
+                                                <p align="center" t-if="o.resanes_danos == 'b' "><span t-field="o.resanes_danos"/></p>
+                                            </td>
+                                            <td style="border: 1px solid #00000a; padding: 0cm 0.19cm 0cm 0.2cm;" valign="top" width="101">
+                                                <p align="center" t-if="o.resanes_danos == 'm' "><span t-field="o.resanes_danos"/></p>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="border: 1px solid #00000a; padding: 0cm 0.19cm 0cm 0.2cm;" valign="top" width="110">
+                                                <p align="center"><span style="font-size: small;">Limpieza de patio trasero y frontal</span></p>
+                                            </td>
+                                            <td style="border: 1px solid #00000a; padding: 0cm 0.19cm 0cm 0.2cm;" valign="top" width="102">
+                                                <p align="center" t-if="o.limpeza_patio == 'e' "><span t-field="o.limpeza_patio"/></p>
+                                            </td>
+                                            <td style="border: 1px solid #00000a; padding: 0cm 0.19cm 0cm 0.2cm;" valign="top" width="102">
+                                                <p align="center" t-if="o.limpeza_patio == 'b' "><span t-field="o.limpeza_patio"/></p>
+                                            </td>
+                                            <td style="border: 1px solid #00000a; padding: 0cm 0.19cm 0cm 0.2cm;" valign="top" width="101">
+                                                <p align="center" t-if="o.limpeza_patio == 'm' "><span t-field="o.limpeza_patio"/></p>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="border: 1px solid #00000a; padding: 0cm 0.19cm 0cm 0.2cm;" rowspan="5" width="102">
+                                                <p align="center">Pintura</p>
+                                            </td>
+                                            <td style="border: 1px solid #00000a; padding: 0cm 0.19cm 0cm 0.2cm;" valign="top" width="110">
+                                                <p align="center"><span style="font-size: small;">Detalle de pintura interior</span></p>
+                                            </td>
+                                            <td style="border: 1px solid #00000a; padding: 0cm 0.19cm 0cm 0.2cm;" valign="top" width="102">
+                                                <p align="center"  t-if="o.det_pitura_int == 'e' "><span t-field="o.det_pitura_int"/></p>
+                                            </td>
+                                            <td style="border: 1px solid #00000a; padding: 0cm 0.19cm 0cm 0.2cm;" valign="top" width="102">
+                                                <p align="center"  t-if="o.det_pitura_int == 'b' "><span t-field="o.det_pitura_int"/></p>
+                                            </td>
+                                            <td style="border: 1px solid #00000a; padding: 0cm 0.19cm 0cm 0.2cm;" valign="top" width="101">
+                                                <p align="center"  t-if="o.det_pitura_int == 'm' "><span t-field="o.limpeza_patio"/></p>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="border: 1px solid #00000a; padding: 0cm 0.19cm 0cm 0.2cm;" valign="top" width="110">
+                                                <p align="center"><span style="font-size: small;">Detalle de pintura exterior</span></p>
+                                            </td>
+                                            <td style="border: 1px solid #00000a; padding: 0cm 0.19cm 0cm 0.2cm;" valign="top" width="102">
+                                                <p align="center" t-if="o.det_pitura_ext == 'e' "></p>
+                                            </td>
+                                            <td style="border: 1px solid #00000a; padding: 0cm 0.19cm 0cm 0.2cm;" valign="top" width="102">
+                                                <p align="center" t-if="o.det_pitura_ext == 'b' "></p>
+                                            </td>
+                                            <td style="border: 1px solid #00000a; padding: 0cm 0.19cm 0cm 0.2cm;" valign="top" width="101">
+                                                <p align="center" t-if="o.det_pitura_ext == 'm' "></p>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="border: 1px solid #00000a; padding: 0cm 0.19cm 0cm 0.2cm;" valign="top" width="110">
+                                                <p align="center"><span style="font-size: small;">Pintura de interior</span></p>
+                                            </td>
+                                            <td style="border: 1px solid #00000a; padding: 0cm 0.19cm 0cm 0.2cm;" valign="top" width="102">
+                                                <p align="center" t-if="o.pint_int == 'e'"><span t-field="o.pint_int"/></p> 
+                                            </td>
+                                            <td style="border: 1px solid #00000a; padding: 0cm 0.19cm 0'cm 0.2cm;" valign="top" width="102">
+                                                <p align="center" t-if="o.pint_int == 'b'"><span t-field="o.pint_int"/></p> 
+                                            </td>
+                                            <td style="border: 1px solid #00000a; padding: 0cm 0.19cm 0cm 0.2cm;" valign="top" width="101">
+                                                <p align="center" t-if="o.pint_int == 'm'"><span t-field="o.pint_int"/></p> 
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="border: 1px solid #00000a; padding: 0cm 0.19cm 0cm 0.2cm;" valign="top" width="110">
+                                                <p align="center"><span style="font-size: small;">Pintura de exterior</span></p>
+                                            </td>
+                                            <td style="border: 1px solid #00000a; padding: 0cm 0.19cm 0cm 0.2cm;" valign="top" width="102">
+                                                <p align="center" t-if="o.pint_ext == 'e'"><span t-field="o.pint_ext"/></p> 
+                                            </td>
+                                            <td style="border: 1px solid #00000a; padding: 0cm 0.19cm 0cm 0.2cm;" valign="top" width="102">
+                                                <p align="center" t-if="o.pint_ext == 'b'"><span t-field="o.pint_ext"/></p> 
+                                            </td>
+                                            <td style="border: 1px solid #00000a; padding: 0cm 0.19cm 0cm 0.2cm;" valign="top" width="101">
+                                                <p align="center" t-if="o.pint_ext == 'm'"><span t-field="o.pint_ext"/></p> 
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="border: 1px solid #00000a; padding: 0cm 0.19cm 0cm 0.2cm;" valign="top" width="110">
+                                                <p align="center"><span style="font-size: small;">pintura techo</span></p>
+                                            </td>
+                                            <td style="border: 1px solid #00000a; padding: 0cm 0.19cm 0cm 0.2cm;" valign="top" width="102">
+                                                <p align="center" t-if="o.pint_techo == 'e'"><span t-field="o.pint_techo"/></p> 
+                                            </td>
+                                            <td style="border: 1px solid #00000a; padding: 0cm 0.19cm 0cm 0.2cm;" valign="top" width="102">
+                                                <p align="center" t-if="o.pint_techo == 'b'"><span t-field="o.pint_techo"/></p> 
+                                            </td>
+                                            <td style="border: 1px solid #00000a; padding: 0cm 0.19cm 0cm 0.2cm;" valign="top" width="101">
+                                                <p align="center" t-if="o.pint_techo == 'm'"><span t-field="o.pint_techo"/></p> 
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="border: 1px solid #00000a; padding: 0cm 0.19cm 0cm 0.2cm;" rowspan="2" width="102">
+                                                <p align="center">Ventanas</p>
+                                            </td>
+                                            <td style="border: 1px solid #00000a; padding: 0cm 0.19cm 0cm 0.2cm;" valign="top" width="110">
+                                                <p align="center"><span style="font-size: small;">Cambio de vidrios</span></p>
+                                            </td>
+                                            <td style="border: 1px solid #00000a; padding: 0cm 0.19cm 0cm 0.2cm;" valign="top" width="102">
+                                                <p align="center" t-if="o.cambio_vidrio == 'e'"><span t-field="o.cambio_vidrio"/></p> 
+                                            </td>
+                                            <td style="border: 1px solid #00000a; padding: 0cm 0.19cm 0cm 0.2cm;" valign="top" width="102">
+                                                <p align="center" t-if="o.cambio_vidrio == 'b'"><span t-field="o.cambio_vidrio"/></p> 
+                                            </td>
+                                            <td style="border: 1px solid #00000a; padding: 0cm 0.19cm 0cm 0.2cm;" valign="top" width="101">
+                                                <p align="center" t-if="o.cambio_vidrio == 'm'"><span t-field="o.cambio_vidrio"/></p> 
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="border: 1px solid #00000a; padding: 0cm 0.19cm 0cm 0.2cm;" valign="top" width="110">
+                                                <p align="center"><span style="font-size: small;">Cambio de perfiles</span></p>
+                                            </td>
+                                            <td style="border: 1px solid #00000a; padding: 0cm 0.19cm 0cm 0.2cm;" valign="top" width="102">
+                                                <p align="center" t-if="o.cambio_perfil == 'e'"><span t-field="o.cambio_perfil"/></p> 
+                                            </td>
+                                            <td style="border: 1px solid #00000a; padding: 0cm 0.19cm 0cm 0.2cm;" valign="top" width="102">
+                                                <p align="center" t-if="o.cambio_perfil == 'b'"><span t-field="o.cambio_perfil"/></p> 
+                                            </td>
+                                            <td style="border: 1px solid #00000a; padding: 0cm 0.19cm 0cm 0.2cm;" valign="top" width="101">
+                                                <p align="center" t-if="o.cambio_perfil == 'm'"><span t-field="o.cambio_perfil"/></p> 
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="border: 1px solid #00000a; padding: 0cm 0.19cm 0cm 0.2cm;" rowspan="5" width="102">
+                                                <p align="center">Puertas</p>
+                                            </td>
+                                            <td style="border: 1px solid #00000a; padding: 0cm 0.19cm 0cm 0.2cm;" valign="top" width="110">
+                                                <p align="center"><span style="font-size: small;">Cambio de chapa principal</span></p>
+                                            </td>
+                                            <td style="border: 1px solid #00000a; padding: 0cm 0.19cm 0cm 0.2cm;" valign="top" width="102">
+                                                <p align="center" t-if="o.Cambio_chapa == 'e'"><span t-field="o.Cambio_chapa"/></p> 
+                                            </td>
+                                            <td style="border: 1px solid #00000a; padding: 0cm 0.19cm 0cm 0.2cm;" valign="top" width="102">
+                                                <p align="center" t-if="o.Cambio_chapa == 'b'"><span t-field="o.Cambio_chapa"/></p> 
+                                            </td>
+                                            <td style="border: 1px solid #00000a; padding: 0cm 0.19cm 0cm 0.2cm;" valign="top" width="101">
+                                                <p align="center" t-if="o.Cambio_chapa == 'm'"><span t-field="o.Cambio_chapa"/></p> 
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="border: 1px solid #00000a; padding: 0cm 0.19cm 0cm 0.2cm;" valign="top" width="110">
+                                                <p align="center"><span style="font-size: small;">Reparacion o resane de puertas de media vida</span></p>
+                                            </td>
+                                            <td style="border: 1px solid #00000a; padding: 0cm 0.19cm 0cm 0.2cm;" valign="top" width="102">
+                                                <p align="center" t-if="o.rep_puerta == 'e'"><span t-field="o.rep_puerta"/></p> 
+                                            </td>
+                                            <td style="border: 1px solid #00000a; padding: 0cm 0.19cm 0cm 0.2cm;" valign="top" width="102">
+                                                <p align="center" t-if="o.rep_puerta == 'b'"><span t-field="o.rep_puerta"/></p> 
+                                            </td>
+                                            <td style="border: 1px solid #00000a; padding: 0cm 0.19cm 0cm 0.2cm;" valign="top" width="101">
+                                                <p align="center" t-if="o.rep_puerta == 'm'"><span t-field="o.rep_puerta"/></p> 
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="border: 1px solid #00000a; padding: 0cm 0.19cm 0cm 0.2cm;" valign="top" width="110">
+                                                <p align="center"><span style="font-size: small;">Puertas interiores</span></p>
+                                            </td>
+                                            <td style="border: 1px solid #00000a; padding: 0cm 0.19cm 0cm 0.2cm;" valign="top" width="102">
+                                                <p align="center" t-if="o.puerta_int == 'e'"><span t-field="o.puerta_int"/></p> 
+                                            </td>
+                                            <td style="border: 1px solid #00000a; padding: 0cm 0.19cm 0cm 0.2cm;" valign="top" width="102">
+                                                <p align="center" t-if="o.puerta_int == 'b'"><span t-field="o.puerta_int"/></p> 
+                                            </td>
+                                            <td style="border: 1px solid #00000a; padding: 0cm 0.19cm 0cm 0.2cm;" valign="top" width="101">
+                                                <p align="center" t-if="o.puerta_int == 'm'"><span t-field="o.puerta_int"/></p> 
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="border: 1px solid #00000a; padding: 0cm 0.19cm 0cm 0.2cm;" valign="top" width="110">
+                                                <p align="center"><span style="font-size: small;">Puertas exterior </span></p>
+                                            </td>
+                                            <td style="border: 1px solid #00000a; padding: 0cm 0.19cm 0cm 0.2cm;" valign="top" width="102">
+                                                <p align="center" t-if="o.puerta_ext == 'e'"><span t-field="o.puerta_ext"/></p> 
+                                            </td>
+                                            <td style="border: 1px solid #00000a; padding: 0cm 0.19cm 0cm 0.2cm;" valign="top" width="102">
+                                                <p align="center" t-if="o.puerta_ext == 'b'"><span t-field="o.puerta_ext"/></p> 
+                                            </td>
+                                            <td style="border: 1px solid #00000a; padding: 0cm 0.19cm 0cm 0.2cm;" valign="top" width="101">
+                                                <p align="center" t-if="o.puerta_ext == 'm'"><span t-field="o.puerta_ext"/></p> 
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="border: 1px solid #00000a; padding: 0cm 0.19cm 0cm 0.2cm;" valign="top" width="110">
+                                                <p align="center"><span style="font-size: small;">pintura de puertas de media vida</span></p>
+                                            </td>
+                                            <td style="border: 1px solid #00000a; padding: 0cm 0.19cm 0cm 0.2cm;" valign="top" width="102">
+                                                <p align="center" t-if="o.pint_puerta == 'e'"><span t-field="o.pint_puerta"/></p> 
+                                            </td>
+                                            <td style="border: 1px solid #00000a; padding: 0cm 0.19cm 0cm 0.2cm;" valign="top" width="102">
+                                                <p align="center" t-if="o.pint_puerta == 'b'"><span t-field="o.pint_puerta"/></p> 
+                                            </td>
+                                            <td style="border: 1px solid #00000a; padding: 0cm 0.19cm 0cm 0.2cm;" valign="top" width="101">
+                                                <p align="center" t-if="o.pint_puerta == 'm'"><span t-field="o.pint_puerta"/></p> 
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="border: 1px solid #00000a; padding: 0cm 0.19cm 0cm 0.2cm;" rowspan="2" width="102">
+                                                <p align="center">Pisos</p>
+                                            </td>
+                                            <td style="border: 1px solid #00000a; padding: 0cm 0.19cm 0cm 0.2cm;" valign="top" width="110">
+                                                <p align="center"><span style="font-size: small;">Arreglo de detalles en pisos</span></p>
+                                            </td>
+                                            <td style="border: 1px solid #00000a; padding: 0cm 0.19cm 0cm 0.2cm;" valign="top" width="102">
+                                                <p align="center" t-if="o.det_piso == 'e'"><span t-field="o.det_piso"/></p> 
+                                            </td>
+                                            <td style="border: 1px solid #00000a; padding: 0cm 0.19cm 0cm 0.2cm;" valign="top" width="102">
+                                                <p align="center" t-if="o.det_piso == 'b'"><span t-field="o.det_piso"/></p> 
+                                            </td>
+                                            <td style="border: 1px solid #00000a; padding: 0cm 0.19cm 0cm 0.2cm;" valign="top" width="101">
+                                                <p align="center" t-if="o.det_piso == 'm'"><span t-field="o.det_piso"/></p> 
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="border: 1px solid #00000a; padding: 0cm 0.19cm 0cm 0.2cm;" valign="top" width="110">
+                                                <p align="center"><span style="font-size: small;">instalacion de piso (Cuando requiera)</span></p>
+                                            </td>
+                                            <td style="border: 1px solid #00000a; padding: 0cm 0.19cm 0cm 0.2cm;" valign="top" width="102">
+                                                <p align="center" t-if="o.instalacion_piso == 'e'"><span t-field="o.instalacion_piso"/></p> 
+                                            </td>
+                                            <td style="border: 1px solid #00000a; padding: 0cm 0.19cm 0cm 0.2cm;" valign="top" width="102">
+                                                <p align="center" t-if="o.instalacion_piso == 'b'"><span t-field="o.instalacion_piso"/></p> 
+                                            </td>
+                                            <td style="border: 1px solid #00000a; padding: 0cm 0.19cm 0cm 0.2cm;" valign="top" width="101">
+                                                <p align="center" t-if="o.instalacion_piso == 'm'"><span t-field="o.instalacion_piso"/></p> 
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="border: 1px solid #00000a; padding: 0cm 0.19cm 0cm 0.2cm;" rowspan="3" width="102">
+                                                <p align="center">Baños</p>
+                                            </td>
+                                            <td style="border: 1px solid #00000a; padding: 0cm 0.19cm 0cm 0.2cm;" valign="top" width="110">
+                                                <p align="center"><span style="font-size: small;">Accesorios Sanitarios</span></p>
+                                            </td>
+                                            <td style="border: 1px solid #00000a; padding: 0cm 0.19cm 0cm 0.2cm;" valign="top" width="102">
+                                                <p align="center" t-if="o.acces_sanitario == 'e'"><span t-field="o.acces_sanitario"/></p> 
+                                            </td>
+                                            <td style="border: 1px solid #00000a; padding: 0cm 0.19cm 0cm 0.2cm;" valign="top" width="102">
+                                                <p align="center" t-if="o.acces_sanitario == 'b'"><span t-field="o.acces_sanitario"/></p> 
+                                            </td>
+                                            <td style="border: 1px solid #00000a; padding: 0cm 0.19cm 0cm 0.2cm;" valign="top" width="101">
+                                                <p align="center" t-if="o.acces_sanitario == 'm'"><span t-field="o.acces_sanitario"/></p> 
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="border: 1px solid #00000a; padding: 0cm 0.19cm 0cm 0.2cm;" valign="top" width="110">
+                                                <p align="center"><span style="font-size: small;">Minerales, Llaves del baño y regaderas</span></p>
+                                            </td>
+                                            <td style="border: 1px solid #00000a; padding: 0cm 0.19cm 0cm 0.2cm;" valign="top" width="102">
+                                                <p align="center" t-if="o.items_sanitario == 'e'"><span t-field="o.items_sanitario"/></p> 
+                                            </td>
+                                            <td style="border: 1px solid #00000a; padding: 0cm 0.19cm 0cm 0.2cm;" valign="top" width="102">
+                                                <p align="center" t-if="o.items_sanitario == 'b'"><span t-field="o.items_sanitario"/></p> 
+                                            </td>
+                                            <td style="border: 1px solid #00000a; padding: 0cm 0.19cm 0cm 0.2cm;" valign="top" width="101">
+                                                <p align="center" t-if="o.items_sanitario == 'm'"><span t-field="o.items_sanitario"/></p> 
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="border: 1px solid #00000a; padding: 0cm 0.19cm 0cm 0.2cm;" valign="top" width="110">
+                                                <p align="center"><span style="font-size: small;">Muebles Sanitarios</span></p>
+                                            </td>
+                                            <td style="border: 1px solid #00000a; padding: 0cm 0.19cm 0cm 0.2cm;" valign="top" width="102">
+                                                <p align="center" t-if="o.muebe_sanitario == 'e'"><span t-field="o.muebe_sanitario"/></p> 
+                                            </td>
+                                            <td style="border: 1px solid #00000a; padding: 0cm 0.19cm 0cm 0.2cm;" valign="top" width="102">
+                                                <p align="center" t-if="o.muebe_sanitario == 'b'"><span t-field="o.muebe_sanitario"/></p> 
+                                            </td>
+                                            <td style="border: 1px solid #00000a; padding: 0cm 0.19cm 0cm 0.2cm;" valign="top" width="101">
+                                                <p align="center" t-if="o.muebe_sanitario == 'm'"><span t-field="o.muebe_sanitario"/></p> 
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="border: 1px solid #00000a; padding: 0cm 0.19cm 0cm 0.2cm;" rowspan="2" width="102">
+                                                <p align="center">cocina</p>
+                                            </td>
+                                            <td style="border: 1px solid #00000a; padding: 0cm 0.19cm 0cm 0.2cm;" valign="top" width="110">
+                                                <p align="center"><span style="font-size: small;">instalacion de llave de tarja</span></p>
+                                            </td>
+                                            <td style="border: 1px solid #00000a; padding: 0cm 0.19cm 0cm 0.2cm;" valign="top" width="102">
+                                                <p align="center" t-if="o.llave_tarja == 'e'"><span t-field="o.llave_tarja"/></p> 
+                                            </td>
+                                            <td style="border: 1px solid #00000a; padding: 0cm 0.19cm 0cm 0.2cm;" valign="top" width="102">
+                                                <p align="center" t-if="o.llave_tarja == 'b'"><span t-field="o.llave_tarja"/></p> 
+                                            </td>
+                                            <td style="border: 1px solid #00000a; padding: 0cm 0.19cm 0cm 0.2cm;" valign="top" width="101">
+                                                <p align="center" t-if="o.llave_tarja == 'm'"><span t-field="o.llave_tarja"/></p> 
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="border: 1px solid #00000a; padding: 0cm 0.19cm 0cm 0.2cm;" valign="top" width="110">
+                                                <p align="center"><span style="font-size: small;">instalacion y reemplazo de tarja de lavado</span></p>
+                                            </td>
+                                            <td style="border: 1px solid #00000a; padding: 0cm 0.19cm 0cm 0.2cm;" valign="top" width="102">
+                                                <p align="center" t-if="o.inst_tarja == 'e'"><span t-field="o.inst_tarja"/></p> 
+                                            </td>
+                                            <td style="border: 1px solid #00000a; padding: 0cm 0.19cm 0cm 0.2cm;" valign="top" width="102">
+                                                <p align="center" t-if="o.inst_tarja == 'b'"><span t-field="o.inst_tarja"/></p> 
+                                            </td>
+                                            <td style="border: 1px solid #00000a; padding: 0cm 0.19cm 0cm 0.2cm;" valign="top" width="101">
+                                                <p align="center" t-if="o.inst_tarja == 'm'"><span t-field="o.inst_tarja"/></p> 
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="border: 1px solid #00000a; padding: 0cm 0.19cm 0cm 0.2cm;" rowspan="3" width="102">
+                                                <p align="center">Instalacion electrica</p>
+                                            </td>
+                                            <td style="border: 1px solid #00000a; padding: 0cm 0.19cm 0cm 0.2cm;" valign="top" width="110">
+                                                <p align="center"><span style="font-size: small;">Revision de instalaciones electricas y suministro de energia</span></p>
+                                            </td>
+                                            <td style="border: 1px solid #00000a; padding: 0cm 0.19cm 0cm 0.2cm;" valign="top" width="102">
+                                                <p align="center" t-if="o.inst_electrica == 'e'"><span t-field="o.inst_electrica"/></p> 
+                                            </td>
+                                            <td style="border: 1px solid #00000a; padding: 0cm 0.19cm 0cm 0.2cm;" valign="top" width="102">
+                                                <p align="center" t-if="o.inst_electrica == 'b'"><span t-field="o.inst_electrica"/></p> 
+                                            </td>
+                                            <td style="border: 1px solid #00000a; padding: 0cm 0.19cm 0cm 0.2cm;" valign="top" width="101">
+                                                <p align="center" t-if="o.inst_electrica == 'm'"><span t-field="o.inst_electrica"/></p> 
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="border: 1px solid #00000a; padding: 0cm 0.19cm 0cm 0.2cm;" valign="top" width="110">
+                                                <p align="center"><span style="font-size: small;">Complementacion de placas, focos contactos y apagadores</span></p>
+                                            </td>
+                                            <td style="border: 1px solid #00000a; padding: 0cm 0.19cm 0cm 0.2cm;" valign="top" width="102">
+                                                <p align="center" t-if="o.compl_items_elect == 'e'"><span t-field="o.compl_items_elect"/></p> 
+                                            </td>
+                                            <td style="border: 1px solid #00000a; padding: 0cm 0.19cm 0cm 0.2cm;" valign="top" width="102">
+                                                <p align="center" t-if="o.compl_items_elect == 'b'"><span t-field="o.compl_items_elect"/></p> 
+                                            </td>
+                                            <td style="border: 1px solid #00000a; padding: 0cm 0.19cm 0cm 0.2cm;" valign="top" width="101">
+                                                <p align="center" t-if="o.compl_items_elect == 'm'"><span t-field="o.compl_items_elect"/></p> 
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="border: 1px solid #00000a; padding: 0cm 0.19cm 0cm 0.2cm;" valign="top" width="110">
+                                                <p align="center"><span style="font-size: small;">Cableado general de luz</span></p>
+                                            </td>
+                                            <td style="border: 1px solid #00000a; padding: 0cm 0.19cm 0cm 0.2cm;" valign="top" width="102">
+                                                <p align="center" t-if="o.cableado_gen == 'e'"><span t-field="o.cableado_gen"/></p> 
+                                            </td>
+                                            <td style="border: 1px solid #00000a; padding: 0cm 0.19cm 0cm 0.2cm;" valign="top" width="102">
+                                                <p align="center" t-if="o.cableado_gen == 'b'"><span t-field="o.cableado_gen"/></p> 
+                                            </td>
+                                            <td style="border: 1px solid #00000a; padding: 0cm 0.19cm 0cm 0.2cm;" valign="top" width="101">
+                                                <p align="center" t-if="o.cableado_gen == 'm'"><span t-field="o.cableado_gen"/></p> 
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="border: 1px solid #00000a; padding: 0cm 0.19cm 0cm 0.2cm;" rowspan="2" width="102">
+                                                <p align="center">instalacion hidraulica</p>
+                                            </td>
+                                            <td style="border: 1px solid #00000a; padding: 0cm 0.19cm 0cm 0.2cm;" valign="top" width="110">
+                                                <p align="center"><span style="font-size: small;">Revision de sistema hidraulico suminstros y desague</span></p>
+                                            </td>
+                                            <td style="border: 1px solid #00000a; padding: 0cm 0.19cm 0cm 0.2cm;" valign="top" width="102">
+                                                <p align="center" t-if="o.check_sis_hidraulico == 'e'"><span t-field="o.check_sis_hidraulico"/></p> 
+                                            </td>
+                                            <td style="border: 1px solid #00000a; padding: 0cm 0.19cm 0cm 0.2cm;" valign="top" width="102">
+                                                <p align="center" t-if="o.check_sis_hidraulico == 'b'"><span t-field="o.check_sis_hidraulico"/></p> 
+                                            </td>
+                                            <td style="border: 1px solid #00000a; padding: 0cm 0.19cm 0cm 0.2cm;" valign="top" width="101">
+                                                <p align="center" t-if="o.check_sis_hidraulico == 'm'"><span t-field="o.check_sis_hidraulico"/></p> 
+                                            </td>
+                                        </tr>
+                                        <tr valign="top">
+                                            <td style="border: 1px solid #00000a; padding: 0cm 0.19cm 0cm 0.2cm;" width="110">
+                                                <p align="center"><span style="font-size: small;">Suministro e instalacion de materiales para instalaciones hidraulicas</span></p>
+                                            </td>
+                                            <td style="border: 1px solid #00000a; padding: 0cm 0.19cm 0cm 0.2cm;" width="102">
+                                                <p align="center" t-if="o.sumnin_hidraulicos == 'e'"><span t-field="o.sumnin_hidraulicos"/></p> 
+                                            </td>
+                                            <td style="border: 1px solid #00000a; padding: 0cm 0.19cm 0cm 0.2cm;" width="102">
+                                                <p align="center" t-if="o.sumnin_hidraulicos == 'b'"><span t-field="o.sumnin_hidraulicos"/></p> 
+                                            </td>
+                                            <td style="border: 1px solid #00000a; padding: 0cm 0.19cm 0cm 0.2cm;" width="101">
+                                                <p align="center" t-if="o.sumnin_hidraulicos == 'm'"><span t-field="o.sumnin_hidraulicos"/></p> 
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <p></p>
+                                <b>Favor de proporcionar un correo electrónico del cliente para calificar nuestro servicio.</b>
+                                <table width="589" cellspacing="0" cellpadding="7" align="center">
+                                    <tbody>
+                                        <tr valign="top">
+                                            <td style="border: 1px solid #00000a; padding: 0cm 0.19cm 0cm 0.2cm;" width="279">
+                                                <p align="center">_________________________</p>
+                                            </td>
+                                            <td style="border: 1px solid #00000a; padding: 0cm 0.19cm 0cm 0.2cm;" width="279">
+                                                <p align="center">__________________________</p>
+                                            </td>
+                                        </tr>
+                                        <tr valign="top">
+                                            <td style="border: 1px solid #00000a; padding: 0cm 0.19cm 0cm 0.2cm;" width="279">
+                                                <p align="center">Cliente: <span t-field="o.cliente"/></p>
+                                            </td>
+                                            <td style="border: 1px solid #00000a; padding: 0cm 0.19cm 0cm 0.2cm;" width="279">
+                                                <p align="center">Habliidator</p>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div> <!---     DIV PAGE  -->
+                        </t>
+                    </t>    <!---     FOREACH DOCS  -->
+                </t>
+        </template>
+    </data>
+</odoo>

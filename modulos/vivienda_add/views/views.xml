@@ -1,0 +1,71 @@
+<odoo>
+  <data>
+          <record model='ir.ui.view' id="xmarts_prueba">
+      <field name="name">xmarts_prueba</field>
+      <field name="model">trova.vivienda</field>
+      <field name="inherit_id" ref="trova_vivienda.trova_vivienda_modelo_form" />
+      <field name="arch" type="xml">
+          <xpath expr="//field[@name='piso']" position="before">
+               <field name="precio_de_venta"/>
+               <field name="precio_venta"  attrs="{'invisible': [('precio_de_venta','=',False)], 'required': [('precio_de_venta','=',True)]}"/>
+              
+               <field name="terreno_excedente"/>
+               <field name="precio_terreno_excedente"  attrs="{'invisible': [('terreno_excedente','=',False)], 'required': [('terreno_excedente','=',True)]}"/>
+                         
+           </xpath>
+            <xpath expr="//field[@name='gestion_credito']" position="before">
+              
+               <field name="ISR"/>
+                         
+           </xpath>
+          
+      </field>
+     </record>
+     <record id="inherit_sale_order_conyuge" model="ir.ui.view">
+       <field name="name">inherit_sale_order_conyuge</field>
+       <field name="model">sale.order</field>            
+            <field name="inherit_id" ref="sale.view_order_form" />
+            <field name="arch" type="xml">
+               <xpath expr="//field[@name='partner_id']" position="after">
+                 
+                 <field name="credito_con" invisible='1'/>
+                
+
+                </xpath> 
+                  
+              
+            </field>
+  </record>
+        <record id="inherit_sale_order_c" model="ir.ui.view">
+       <field name="name">inherit_sale_order_c</field>
+       <field name="model">sale.order</field>
+            <field name="type">form</field>
+            <field name="inherit_id" ref="trova_vivienda.inherit_sale_order" />
+            <field name="arch" type="xml">
+               
+                <xpath expr="//page[@name='documentos']" position="after">
+                    <page name="documentos_conyuge" string="Adjuntos Conyuge" attrs="{'invisible':[('credito_con','=',False)]}">
+                            <group name="group_c"> 
+                                <group name="group_c">
+                                  <field name="curp_doc_c" attrs="{'required':[('credito_con','=',True)]}"/>
+                                   <field name="ine_doc_c" attrs="{'required':[('credito_con','=',True)]}"/>
+                                  <field name="acta_doc_c" attrs="{'required':[('credito_con','=',True)]}"/>
+                                  <field name="acta_esposa_doc_c" attrs="{'required':[('credito_con','=',True)]}"/>
+                                  <field name="acta_matrimonio_doc_c"/>
+                                </group>
+                                <group name="group_c2">
+                                  <field name="rfc_doc_c" attrs="{'required':[('credito_con','=',True)]}"/>
+                                  <field name="bansefi_doc_c" attrs="{'required':[('credito_con','=',True)]}"/>
+                                  <field name="precalificacion_doc_c" attrs="{'required':[('credito_con','=',True)]}"/>
+                                  <field name="constancia_taller_doc_c" attrs="{'required':[('credito_con','=',True)]}"/>
+                                  <field name="comp_domicilio_doc_c" attrs="{'required':[('credito_con','=',True)]}"/>
+                                </group> 
+                            </group>
+                    </page>        
+
+                </xpath> 
+            </field>
+</record>
+
+  </data>
+</odoo>

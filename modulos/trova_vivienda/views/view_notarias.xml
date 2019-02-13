@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+	<odoo>
+		<data>
+			<record id="trova_notaria_tree" model="ir.ui.view">
+				<field name="name">trova.notaria.tree</field>
+				<field name="model">trova.notarias</field>
+				<field name="arch" type="xml">
+					<tree>
+						<field name="num_notaria"/>
+						<field name="notaria"/>
+						<field name="name" />
+					</tree>
+                    </field>
+			</record>
+			<record id="trova_notarias_form" model="ir.ui.view">
+				<field name="name">trova.notarias.form</field>
+				<field name="model">trova.notarias</field>
+				<field name="arch" type="xml">
+                    <form string ="Formulario notarias" version="9.0">
+                    	<sheet>
+                    			<group name="group">
+                    				<group name="group_left">
+                    					<field name="num_notaria"/>
+                    					<field name="notaria" readonly='1'/>
+                    					<field name="name"/>
+                    					<field name="tel"/>
+                    				</group>
+                    				<group name="group_rigth" string="Direccion">
+                    					<field name="calle"/>
+                    					<field name="calle2"/>
+                    					<field name="estado"/>
+                    					<field name="municipio"/>
+                    					<field name="cp"/>                    					
+                    				</group>
+                    			</group>
+                    	</sheet>
+                    </form>
+                </field>
+            </record>
+		</data>
+	</odoo>

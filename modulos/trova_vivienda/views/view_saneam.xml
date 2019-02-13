@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+	<odoo>
+		<data>
+			  <record id="trova_viv_saneamiento_modelo_tree" model="ir.ui.view">
+        		<field name="name">trova.viv.saneamiento.modelo.tree</field>
+        		<field name="model">trova.vivienda.sanea</field>
+        		<field name="arch" type="xml"> 
+            		<tree string ="Saneamiento">
+             			<field name="name"/>
+                  <field name="folioreal" />
+         			  </tree>      	
+     			   </field>
+  		  </record>
+  			<record id="trova_viv_saneamiento_modelo_form" model="ir.ui.view">
+    			<field name="name">Saneamiento</field>
+    			<field name="model">trova.vivienda.sanea</field>
+    			<field name="arch" type="xml">
+       				<form string ="Formulario de datos de Saneamietno" version="9.0">
+        				<sheet> 
+        					<group name="group0"> 
+            					<group name="group_left">
+                          <h2><field name="name" readonly="1"/></h2>
+               					  <field name="folioreal" />
+                          <field name="estado" />
+            					</group>                     
+        					</group>
+
+                  <notebook id="estados_especiales_fields">
+                      <page name="estados" string="Estados Generales">
+                         <group name="group2"> 
+                           <group name="group_left">
+                          <field name="cuentapredial"/>
+                          <field name="mpp" />
+                          <field name="mpcp"/>
+                          <field name="fechapp" widget='date'/>
+                          <field name="mpcfe" />
+                          <field name="fechapcfe" widget='date'/>
+                         </group>
+                        <group name="group_rigth">
+                          <field name="cuentagua"/> 
+                          <field name="mpa" /> 
+                          <field name="mpca" />
+                          <field name="fechapa" widget='date'/>
+                          <field name="certioyp" /> 
+                          <field name="certinof" />
+                          <field name="certinadeu" /> 
+                          <field name="certihipo" /> 
+                          <field name="certifiscal" />
+                        </group>                     
+                        </group>
+                    </page>
+
+                    <page name="tijuana" string="Tijuana">
+                         <group name="group2"> 
+                           <group name="group_left">
+                            <field name="cartografico" />
+                            <field name="mpcarto" />
+                            <field name="fechacarto"/>
+                            <field name="no_oficial" />
+                            <field name="mpnumofici" />
+                            <field name="fechanumofi" />
+                         </group>
+                        <group name="group_rigth">
+                            <field name="secretfinan" /> 
+                            <field name="mpsecrefin" />
+                            <field name="fechasecfin" />
+                            <field name="mpsecreplan" /> 
+                            <field name="fechasecplan" /> 
+                            <field name="juntaurba" /> 
+                            <field name="mpurba" /> 
+                            <field name="fechaurba" /> 
+                        </group>                     
+                        </group>
+                    </page>
+
+                  </notebook>
+						</sheet>
+					</form>
+        </field>
+      </record>
+		</data>
+	</odoo>	
