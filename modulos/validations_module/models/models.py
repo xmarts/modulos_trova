@@ -149,5 +149,5 @@ class ValidPago(models.Model):
 class AddCampCuent(models.Model):
 	_inherit = 'res.partner'
 
-	cuenta_select = fields.Many2one('res.partner.bank', string="Selecciona tu cuenta", required=True)
+	cuenta_select = fields.Many2one('res.partner.bank', string="Selecciona tu cuenta", required=False)
 		
