@@ -139,7 +139,7 @@
         </field>
     </record>
 
-    <record id="trova_vivienda_btntit" model="ir.ui.view">
+    <!-- <record id="trova_vivienda_btntit" model="ir.ui.view">
         <field name="name">trova.vivienda.btntit</field>
         <field name="model">trova.vivienda.titu</field>
         <field name="inherit_id" ref="trova_vivienda.trova_viv_titulacion_modelo_form" />
@@ -148,7 +148,7 @@
                 <attribute name="attrs">{'invisible':[('etapas','!=', 'Firmada')]}</attribute>
             </xpath>
         </field>
-    </record>
+    </record> -->
 
     <!-- FIN VALIDACIONES TITULACION -->
 
