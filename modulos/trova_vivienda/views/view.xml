@@ -184,16 +184,21 @@
 <menuitem id="trova_vivienda_menu1" name="Desarrollos" sequence="1" parent="trova_vivienda_root" action="trova_viv_des_menu_action"/>
 <menuitem id="trova_vivienda_menu2" name="Saneamiento" sequence="2" parent="trova_vivienda_root" action="trova_viv_sanea_menu_action"/>
 <menuitem id="trova_vivienda_menu3" name="Titulacion" sequence="3" parent="trova_vivienda_root" action="trova_viv_titu_menu_action"/>
+
+<menuitem id="trova_vivienda_menuad" name="Garantias" sequence="4" parent="trova_vivienda_root" />
+
+  <menuitem id="trova_vivienda_menuad1" name="Garantias" sequence="5" parent="trova_vivienda_menuad" action="trova_garantia"/>
+  <menuitem id="trova_vivienda_menuad2" name="Evaluaciones" sequence="6" parent="trova_vivienda_menuad" action="trova_evaluacion" />
+
 <!--  Boton de Coonfiguracion, sin "action" para desplegar lista -->
-<menuitem id="trova_vivienda_menu4" name="Configuracion" sequence="4" parent="trova_vivienda_root" />
+<menuitem id="trova_vivienda_menu4" name="Configuracion" sequence="7" parent="trova_vivienda_root" />
 
 <!--  Enlazamos la acción en el submenú-->
-    <menuitem id="trova_vivienda_submenu_action1" name="Municipio" sequence="5" parent="trova_vivienda_menu4" action="trova_viv_muni_menu_action" />
-    <menuitem id="trova_vivienda_submenu_action2" name="Paquete" sequence="6" parent="trova_vivienda_menu4" action="trova_viv_paq_menu_action" />
-    <menuitem id="trova_vivienda_submenu_action3" name="Subasta" sequence="7" parent="trova_vivienda_menu4" action="trova_viv_subasta_menu_action" />
-    <menuitem id="trova_vivienda_submenu_action4" name="Tipo de Venta" sequence="8" parent="trova_vivienda_menu4" action="trova_viv_tipo_venta_menu_action" />
-    <menuitem id="trova_vivienda_submenu_action5" name="Garantias" sequence="9" parent="trova_vivienda_menu4" action="trova_garantia"/>
-    <menuitem id="trova_vivienda_submenu_action6" name="Evaluaciones" parent="trova_vivienda_menu4" action="trova_evaluacion" />
+    <menuitem id="trova_vivienda_submenu_action1" name="Municipio" sequence="8" parent="trova_vivienda_menu4" action="trova_viv_muni_menu_action" />
+    <menuitem id="trova_vivienda_submenu_action2" name="Paquete" sequence="9" parent="trova_vivienda_menu4" action="trova_viv_paq_menu_action" />
+    <menuitem id="trova_vivienda_submenu_action3" name="Subasta" sequence="10" parent="trova_vivienda_menu4" action="trova_viv_subasta_menu_action" />
+    <menuitem id="trova_vivienda_submenu_action4" name="Tipo de Venta" sequence="11" parent="trova_vivienda_menu4" action="trova_viv_tipo_venta_menu_action" />
+    
 
 
 
