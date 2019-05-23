@@ -6,8 +6,8 @@
       <field name="inherit_id" ref="trova_vivienda.trova_vivienda_modelo_form" />
       <field name="arch" type="xml">
           <xpath expr="//field[@name='piso']" position="before">
-               <field name="precio_de_venta"/>
-               <field name="precio_venta"  attrs="{'invisible': [('precio_de_venta','=',False)], 'required': [('precio_de_venta','=',True)]}"/>
+               <field name="precio_de_venta" invisible="1"/>
+               <field name="precio_venta"  invisible="1"/>
               
                <field name="terreno_excedente"/>
                <field name="precio_terreno_excedente"  attrs="{'invisible': [('terreno_excedente','=',False)], 'required': [('terreno_excedente','=',True)]}"/>
@@ -16,6 +16,11 @@
             <xpath expr="//field[@name='gestion_credito']" position="before">
               
                <field name="ISR"/>
+                         
+           </xpath>
+             <xpath expr="//field[@name='name']" position="before">
+              
+               <field name="account_analytic_id"/>
                          
            </xpath>
           

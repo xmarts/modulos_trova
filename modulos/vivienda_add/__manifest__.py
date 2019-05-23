@@ -20,7 +20,7 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base','trova_vivienda','contacts','sale'],
+    'depends': ['base','trova_vivienda','contacts','sale','purchase'],
 
     # always loaded
     'data': [

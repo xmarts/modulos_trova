@@ -10,6 +10,7 @@ class vivienda__add(models.Model):
 	terreno_excedente = fields.Boolean(string='Terreno Excedente',  help='Terreno Excedente')
 	precio_terreno_excedente = fields.Float(string='Precio del Terreno Excedente')
 	ISR = fields.Integer(string='ISR')
+	account_analytic_id=fields.Many2one('account.analytic.account',string='Cuenta Analitica')
 
 
 class contac_add(models.Model):
@@ -39,3 +40,21 @@ class conyuge_adjuntos(models.Model):
 	constancia_taller_doc_c = fields.Binary(string='Constancia de Taller')
 	comp_domicilio_doc_c = fields.Binary(string='Comprobante de Domicilio')
 	credito_con = fields.Boolean(related='partner_id.credito_conyu', string="conyu" ,readonly=True)
+
+class purchase_vivienda(models.Model):
+	_inherit='purchase.order.line'
+
+
+	@api.model
+	def create(self, vals):
+		res=super(purchase_vivienda, self).create(vals)	
+	
+
+		r = vals.get("amount_total_fac")
+		if res:
+			total=res.price_subtotal + res.price_tax
+			ini=res.account_analytic_id.name
+			ini_id=res.account_analytic_id.id
+			do=self.env['trova.vivienda'].create({'name':ini,'preciocompra':total,'recamaras':0,'account_analytic_id':ini_id})
+				
+		return res
